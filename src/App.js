@@ -92,48 +92,81 @@ function App() {
 
   const projectsData = [
     {
-      title: "E-commerce Platform",
-      shortDescription: "Full-featured online store",
-      description: "Full-featured online store with responsive design and smooth checkout flow.",
-      role: "Frontend Developer",
-      technologies: ["React", "CSS", "Stripe API"],
-      images: ["https://via.placeholder.com/600x400/4ecdc4/ffffff?text=E-commerce+Platform", "https://via.placeholder.com/600x400/ff6b6b/ffffff?text=E-commerce+2"],
-      icon: "🛒",
-      category: "code",
-      liveLink: "https://example.com/ecommerce",
-    },
-    {
-      title: "Task Manager",
-      shortDescription: "Drag & drop task organizer",
-      description: "Drag & drop task organizer to boost productivity.",
-      role: "Fullstack Developer",
-      technologies: ["React", "Node.js", "MongoDB"],
-      images: ["https://via.placeholder.com/600x400/ff6b6b/ffffff?text=Task+Manager", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=Task+Manager+2"],
-      icon: "📋",
-      category: "code",
-      liveLink: "https://example.com/taskmanager",
-    },
-    {
-      title: "Weather App",
-      shortDescription: "Beautiful weather forecasts",
-      description: "Beautiful weather app showing current and weekly forecasts.",
-      role: "Frontend Developer",
-      technologies: ["React", "API", "CSS"],
-      images: ["https://via.placeholder.com/600x400/45b7d1/ffffff?text=Weather+App", "https://via.placeholder.com/600x400/96ceb4/ffffff?text=Weather+App+2"],
-      icon: "🌤️",
-      category: "design",
-      liveLink: "https://example.com/weather",
-    },
-    {
-      title: "Portfolio Website",
-      shortDescription: "Creative portfolio design",
-      description: "Creative portfolio website combining design and frontend skills.",
-      role: "Frontend Developer / Designer",
-      technologies: ["React", "CSS", "Figma"],
+      title: "My Portfolio Website",
+      shortDescription: "Creative notebook-style portfolio",
+      description: "A unique portfolio website with notebook paper design, interactive book sections, and creative animations. Features a hand-drawn aesthetic with modern React functionality.",
+      role: "Designer & Frontend Developer",
+      technologies: ["React", "CSS3", "Framer Motion", "Creative Design"],
       images: ["https://via.placeholder.com/600x400/96ceb4/ffffff?text=Portfolio+Website", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=Portfolio+Website+2"],
-      icon: "🎨",
+      icon: "📓",
       category: "design",
       liveLink: "https://example.com/portfolio",
+    },
+    {
+      title: "OMS Project",
+      shortDescription: "Order Management System",
+      description: "Comprehensive order management system with intuitive interface design, dashboard analytics, and streamlined workflow for efficient business operations.",
+      role: "UI/UX Designer & Frontend Developer",
+      technologies: ["React", "TypeScript", "Material-UI", "Chart.js"],
+      images: ["https://via.placeholder.com/600x400/4ecdc4/ffffff?text=OMS+Project", "https://via.placeholder.com/600x400/ff6b6b/ffffff?text=OMS+Project+2"],
+      icon: "📊",
+      category: "design",
+      liveLink: "https://example.com/oms",
+    },
+    {
+      title: "Seven Luck Casino",
+      shortDescription: "Responsive casino platform.",
+      description: "SevenLuck Casino, operated by Grand Korean Leisure (a subsidiary of the Korean Tourism Organization), is one of Korea’s leading casinos for foreigners. The company approached us for a complete design rebrand and the development of a new set of digital products.",
+      role: "UI/UX Designer & Frontend Developer",
+      technologies: ["Vue.js", "CSS3", "Vuex", "Vue Router", "Vuex"],
+      images: ["https://via.placeholder.com/600x400/45b7d1/ffffff?text=Seven+Luck+Casino", "https://via.placeholder.com/600x400/96ceb4/ffffff?text=Seven+Luck+Casino+2"],
+      icon: "🎰",
+      category: "design",
+      liveLink: "https://example.com/sevenluck",
+    },
+    {
+      title: "PriceGolf Market",
+      shortDescription: "Golf equipment marketplace",
+      description: "E-commerce platform specializing in golf equipment and accessories. Features product catalog, price comparison tools, user reviews, and secure checkout system with golf-specific categories.",
+      role: "UI/UX Designer & Frontend Developer",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe", "E-commerce"],
+      images: ["https://via.placeholder.com/600x400/ff6b6b/ffffff?text=PriceGolf+Market", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=PriceGolf+Market+2"],
+      icon: "⛳",
+      category: "design",
+      liveLink: "https://example.com/pricegolf",
+    },
+    {
+      title: "DataMon",
+      shortDescription: "Data monitoring platform",
+      description: "Advanced data monitoring and analytics platform with real-time dashboards, alert systems, and comprehensive reporting tools. Built for enterprise-level data management and visualization.",
+      role: "Full Stack Developer",
+      technologies: ["React", "Node.js", "Python", "PostgreSQL", "D3.js"],
+      images: ["https://via.placeholder.com/600x400/4ecdc4/ffffff?text=DataMon", "https://via.placeholder.com/600x400/ff6b6b/ffffff?text=DataMon+2"],
+      icon: "📈",
+      category: "code",
+      liveLink: "https://example.com/datamon",
+    },
+    {
+      title: "Studio 21",
+      shortDescription: "Creative studio management",
+      description: "Comprehensive studio management system for creative agencies. Features project tracking, client management, resource allocation, and integrated billing system with automated workflows.",
+      role: "Backend Developer & System Architect",
+      technologies: ["Node.js", "Express", "MongoDB", "Socket.io", "AWS"],
+      images: ["https://via.placeholder.com/600x400/45b7d1/ffffff?text=Studio+21", "https://via.placeholder.com/600x400/96ceb4/ffffff?text=Studio+21+2"],
+      icon: "🎬",
+      category: "code",
+      liveLink: "https://example.com/studio21",
+    },
+    {
+      title: "Tech In",
+      shortDescription: "Technology innovation hub",
+      description: "Innovation platform connecting tech startups with investors and mentors. Features startup profiles, pitch decks, networking tools, and investment tracking with advanced matching algorithms.",
+      role: "Full Stack Developer",
+      technologies: ["React", "TypeScript", "GraphQL", "Redis", "Docker"],
+      images: ["https://via.placeholder.com/600x400/ff6b6b/ffffff?text=Tech+In", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=Tech+In+2"],
+      icon: "🚀",
+      category: "code",
+      liveLink: "https://example.com/techin",
     },
   ];
 
@@ -162,7 +195,7 @@ function App() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              Hello! 👋
+              Hello, I'm Alyona
             </motion.h1>
             
             <motion.h2 
@@ -171,18 +204,18 @@ function App() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              I'm [Your Name]
+              Designer and aspiring Frontend Developer. I combine creativity and code to turn ideas into working products.
             </motion.h2>
             
-            <motion.p 
-              className="sketch-text"
+            <motion.div 
+              className="hero-buttons"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
             >
-              I'm a web developer who loves creating beautiful and functional websites. 
-              Welcome to my digital notebook with projects and ideas!
-            </motion.p>
+              <a href="#projects" className="hero-btn">View Projects</a>
+              <a href="#contact" className="hero-btn">Contact</a>
+            </motion.div>
           </div>
         </motion.section>
 
@@ -213,10 +246,10 @@ function App() {
               <Page number="1">
                 <h3 className="page-title">About Me</h3>
                 <div className="about-content">
-                  <p>Привет! Я веб-разработчик, который любит создавать красивые и функциональные приложения.</p>
-                  <p>Мой путь в программировании начался с любопытства и желания создавать что-то новое.</p>
-                  <p>Я специализируюсь на React, JavaScript и современных веб-технологиях.</p>
-                  <p>В свободное время люблю изучать новые технологии и работать над личными проектами.</p>
+                  <p>Hi! I'm Alyona — a designer and aspiring frontend developer. I've been working with web design and interfaces for over 3 years, and recently I've been diving deeper into development to bring ideas to life not just in mockups, but in code.</p>
+                  <p>I love finding the balance between aesthetics and usability: creating projects that look and work equally well. I'm currently actively developing my skills in JavaScript, HTML, CSS and React, learning through practice and building a portfolio of real projects.</p>
+                  <p>My goal is to work on products where user experience and attention to detail matter. I'm open to new opportunities, especially international ones, and I'm always ready for new challenges.</p>
+                  <p>Besides work, I love motorcycles 🏍 and sports.</p>
                 </div>
               </Page>
               
@@ -233,77 +266,77 @@ function App() {
               </Page>
               
               <Page number="4">
-                <h3 className="page-title">Моя Анкета</h3>
+                <h3 className="page-title">My Questionnaire</h3>
                 <div className="questionnaire-item">
                   <span className="question-marker">🎨</span>
-                  <span className="question-text">Любимый цвет:</span>
-                  <span className="answer-text">Синий (как небо в ясный день!)</span>
+                  <span className="question-text">Favorite color:</span>
+                  <span className="answer-text">Blue (like the sky on a clear day!)</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">📚</span>
-                  <span className="question-text">Любимый предмет:</span>
-                  <span className="answer-text">Информатика (теперь это моя жизнь 😅)</span>
+                  <span className="question-text">Favorite subject:</span>
+                  <span className="answer-text">Computer Science (now it's my life 😅)</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">🎵</span>
-                  <span className="question-text">Любимая песня:</span>
+                  <span className="question-text">Favorite song:</span>
                   <span className="answer-text">Bohemian Rhapsody - Queen</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">🎮</span>
-                  <span className="question-text">Хобби:</span>
-                  <span className="answer-text">Программирование, рисование, чтение фантастики</span>
+                  <span className="question-text">Hobbies:</span>
+                  <span className="answer-text">Programming, drawing, reading sci-fi</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">💪</span>
-                  <span className="question-text">Мой девиз:</span>
-                  <span className="answer-text">"Код должен быть красивым и работать!"</span>
+                  <span className="question-text">My motto:</span>
+                  <span className="answer-text">"Code should be beautiful and work!"</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">⭐</span>
-                  <span className="question-text">Мечта:</span>
-                  <span className="answer-text">Создать приложение, которым будут пользоваться миллионы</span>
+                  <span className="question-text">Dream:</span>
+                  <span className="answer-text">Create an app that millions will use</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">🖌️</span>
-                  <span className="question-text">Что люблю рисовать:</span>
-                  <span className="answer-text">UI/UX дизайны и абстрактные узоры</span>
+                  <span className="question-text">What I love to draw:</span>
+                  <span className="answer-text">UI/UX designs and abstract patterns</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">🍕</span>
-                  <span className="question-text">Любимая еда:</span>
-                  <span className="answer-text">Пицца (особенно с пепперони!)</span>
+                  <span className="question-text">Favorite food:</span>
+                  <span className="answer-text">Pizza (especially with pepperoni!)</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">🌍</span>
-                  <span className="question-text">Хочу побывать:</span>
-                  <span className="answer-text">В Японии (технологии + культура = мечта!)</span>
+                  <span className="question-text">Want to visit:</span>
+                  <span className="answer-text">Japan (technology + culture = dream!)</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">🚀</span>
-                  <span className="question-text">Любимая технология:</span>
-                  <span className="answer-text">React (создаю магию на вебе!)</span>
+                  <span className="question-text">Favorite technology:</span>
+                  <span className="answer-text">React (creating magic on the web!)</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">🎯</span>
-                  <span className="question-text">Цель на год:</span>
-                  <span className="answer-text">Изучить AI и создать умное приложение</span>
+                  <span className="question-text">Goal for the year:</span>
+                  <span className="answer-text">Learn AI and create a smart app</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">🌟</span>
-                  <span className="question-text">Любимое время дня:</span>
-                  <span className="answer-text">Ночь (когда все спят, а я кодирую!)</span>
+                  <span className="question-text">Favorite time of day:</span>
+                  <span className="answer-text">Night (when everyone sleeps and I code!)</span>
                 </div>
               </Page>
             </HTMLFlipBook>
