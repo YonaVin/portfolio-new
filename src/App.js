@@ -26,7 +26,8 @@ const Page = React.forwardRef((props, ref) => {
   );
 });
 
-// Projects data
+// Projects data (unused - keeping for reference)
+/*
 const projects = [
   {
     title: "E-commerce Platform",
@@ -81,6 +82,7 @@ const projects = [
     link: "https://github.com/yourusername/portfolio"
   }
 ];
+*/
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(0);
@@ -220,13 +222,13 @@ function App() {
               
               <Page number="2">
                 <div className="image-page">
-                  <img src="https://via.placeholder.com/400x500/4ecdc4/ffffff?text=Image+1" alt="Image 1" />
+                  <img src="https://via.placeholder.com/400x500/4ecdc4/ffffff?text=Image+1" alt="Placeholder 1" />
                 </div>
               </Page>
               
               <Page number="3">
                 <div className="image-page">
-                  <img src="https://via.placeholder.com/400x500/ff6b6b/ffffff?text=Image+2" alt="Image 2" />
+                  <img src="https://via.placeholder.com/400x500/ff6b6b/ffffff?text=Image+2" alt="Placeholder 2" />
                 </div>
               </Page>
               

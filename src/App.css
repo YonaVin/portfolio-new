@@ -10,7 +10,6 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
   position: relative;
-  overflow: hidden;
 }
 
 .notebook-page::before {
@@ -36,7 +35,6 @@
   margin-right: auto;
   padding-left: 40px;
   padding-right: 40px;
-  overflow: hidden;
 }
 
 .section-title {
@@ -82,8 +80,6 @@
   position: relative;
   min-height: 700px;
   overflow: hidden;
-  height: 700px;
-  max-height: 700px;
 }
 
 
@@ -279,6 +275,8 @@
   pointer-events: none;
   z-index: 25;
 }
+
+
 
 
 
@@ -779,18 +777,21 @@
 
   .view-project-btn {
     display: inline-block;
-    background: #3498db;
-    color: white;
+    background: white;
+    color: black;
     padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
-    transition: background 0.2s;
+    transition: all 0.2s;
     margin-bottom: 20px;
+    border: 2px solid #333;
+    box-shadow: 3px 3px 0px #333;
   }
 
   .view-project-btn:hover {
-    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 0px #333;
   }
 
   .project-navigation {
@@ -800,19 +801,20 @@
   }
 
   .nav-btn {
-    background: #f8f9fa;
-    border: 2px solid #dee2e6;
-    color: #495057;
+    background: white;
+    border: 2px solid #333;
+    color: black;
     padding: 8px 16px;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s;
     font-weight: 500;
+    box-shadow: 3px 3px 0px #333;
   }
 
   .nav-btn:hover {
-    background: #e9ecef;
-    border-color: #adb5bd;
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 0px #333;
   }
   
 /* SNS Section */
