@@ -168,6 +168,17 @@ function App() {
       category: "code",
       liveLink: "https://example.com/techin",
     },
+    {
+      title: "Art Collection",
+      shortDescription: "Illustrations",
+      description: "A collection of digital artwork featuring fantasy characters and whimsical illustrations. Includes detailed character designs, environmental art, and concept pieces showcasing creative storytelling through visual art.",
+      role: "Illustrator",
+      technologies: ["Procreate", "Photoshop"],
+      images: ["/art1.png", "/art2.png", "/art3.png"],
+      icon: "🎨",
+      category: "art",
+      liveLink: "https://example.com/digitalart",
+    },
   ];
 
   const filteredProjects = projectsData.filter(
@@ -456,19 +467,19 @@ function App() {
                   className={`tab ${selectedTab === "design" ? "active" : ""}`}
                   onClick={() => setSelectedTab("design")}
                 >
-                  Design
+                  Page 1
                 </div>
                 <div
                   className={`tab ${selectedTab === "code" ? "active" : ""}`}
                   onClick={() => setSelectedTab("code")}
                 >
-                  Code
+                  Page 2
                 </div>
                 <div
                   className={`tab ${selectedTab === "art" ? "active" : ""}`}
                   onClick={() => setSelectedTab("art")}
                 >
-                  Art
+                  Page 3
                 </div>
               </div>
 
@@ -528,7 +539,10 @@ function App() {
 
                   <div className="project-info">
                     <p className="project-detail-description">
-                      {projectsData[selectedProject].description}
+                      {selectedTab === "art" 
+                        ? "My hobby is creating digital art and illustrations. I love drawing fantasy characters, creating concept art, and experimenting with different styles. This helps me develop creativity and find inspiration for design projects."
+                        : projectsData[selectedProject].description
+                      }
                     </p>
                     <p className="project-role">
                       <strong>Role:</strong>{" "}
