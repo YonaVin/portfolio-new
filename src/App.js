@@ -1,8 +1,32 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import HTMLFlipBook from 'react-pageflip';
 import './App.css';
 
-// Projects dataр
+
+
+// Page components for the book
+const Page = React.forwardRef((props, ref) => {
+  return (
+    <div className="book-page" ref={ref}>
+      <div className="page-content">
+        {props.children}
+      </div>
+      <div className="bottom-border"></div>
+      {props.number === "2" && (
+        <div className="folded-corner"></div>
+      )}
+      {(props.number === "2" || props.number === "4") && (
+        <div className="right-border"></div>
+      )}
+      {(props.number === "1" || props.number === "3") && (
+        <div className="left-border"></div>
+      )}
+    </div>
+  );
+});
+
+// Projects data
 const projects = [
   {
     title: "E-commerce Platform",
@@ -61,6 +85,59 @@ const projects = [
 function App() {
   const [selectedProject, setSelectedProject] = useState(0);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [selectedTab, setSelectedTab] = useState("design");
+
+
+  const projectsData = [
+    {
+      title: "E-commerce Platform",
+      shortDescription: "Full-featured online store",
+      description: "Full-featured online store with responsive design and smooth checkout flow.",
+      role: "Frontend Developer",
+      technologies: ["React", "CSS", "Stripe API"],
+      images: ["https://via.placeholder.com/600x400/4ecdc4/ffffff?text=E-commerce+Platform", "https://via.placeholder.com/600x400/ff6b6b/ffffff?text=E-commerce+2"],
+      icon: "🛒",
+      category: "code",
+      liveLink: "https://example.com/ecommerce",
+    },
+    {
+      title: "Task Manager",
+      shortDescription: "Drag & drop task organizer",
+      description: "Drag & drop task organizer to boost productivity.",
+      role: "Fullstack Developer",
+      technologies: ["React", "Node.js", "MongoDB"],
+      images: ["https://via.placeholder.com/600x400/ff6b6b/ffffff?text=Task+Manager", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=Task+Manager+2"],
+      icon: "📋",
+      category: "code",
+      liveLink: "https://example.com/taskmanager",
+    },
+    {
+      title: "Weather App",
+      shortDescription: "Beautiful weather forecasts",
+      description: "Beautiful weather app showing current and weekly forecasts.",
+      role: "Frontend Developer",
+      technologies: ["React", "API", "CSS"],
+      images: ["https://via.placeholder.com/600x400/45b7d1/ffffff?text=Weather+App", "https://via.placeholder.com/600x400/96ceb4/ffffff?text=Weather+App+2"],
+      icon: "🌤️",
+      category: "design",
+      liveLink: "https://example.com/weather",
+    },
+    {
+      title: "Portfolio Website",
+      shortDescription: "Creative portfolio design",
+      description: "Creative portfolio website combining design and frontend skills.",
+      role: "Frontend Developer / Designer",
+      technologies: ["React", "CSS", "Figma"],
+      images: ["https://via.placeholder.com/600x400/96ceb4/ffffff?text=Portfolio+Website", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=Portfolio+Website+2"],
+      icon: "🎨",
+      category: "design",
+      liveLink: "https://example.com/portfolio",
+    },
+  ];
+
+  const filteredProjects = projectsData.filter(
+    (p) => p.category === selectedTab
+  );
 
   return (
     <div className="notebook-page">
@@ -115,96 +192,119 @@ function App() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h2 className="section-title">About Me</h2>
-          <div className="about-content">
-            <p className="sketch-text">
-              I'm a passionate developer with experience in creating modern web applications. 
-              I love solving complex problems and creating user experiences that 
-              bring joy to people.
-            </p>
-            
-            {/* Timeline */}
-            <div className="timeline-container">
-              <div className="timeline">
-                <div className="timeline-item">
-                  <div className="timeline-icon">✏️</div>
-                  <div className="timeline-content">
-                    <h3 className="timeline-title">Drawing</h3>
-                    <p className="timeline-description">Started with traditional art and sketching</p>
-                  </div>
+          <div className="book-container">
+            <HTMLFlipBook
+              width={500}
+              height={600}
+              size="stretch"
+              minWidth={450}
+              maxWidth={550}
+              minHeight={550}
+              maxHeight={650}
+              showCover={false}
+              flippingTime={1000}
+              className="questionnaire-book"
+              startPage={0}
+              drawShadow={false}
+              usePortrait={false}
+            >
+              <Page number="1">
+                <h3 className="page-title">About Me</h3>
+                <div className="about-content">
+                  <p>Привет! Я веб-разработчик, который любит создавать красивые и функциональные приложения.</p>
+                  <p>Мой путь в программировании начался с любопытства и желания создавать что-то новое.</p>
+                  <p>Я специализируюсь на React, JavaScript и современных веб-технологиях.</p>
+                  <p>В свободное время люблю изучать новые технологии и работать над личными проектами.</p>
                 </div>
-                <div className="timeline-arrow">→</div>
-                <div className="timeline-item">
-                  <div className="timeline-icon">🎨</div>
-                  <div className="timeline-content">
-                    <h3 className="timeline-title">Design</h3>
-                    <p className="timeline-description">Moved to digital design and UI/UX</p>
-                  </div>
+              </Page>
+              
+              <Page number="2">
+                <div className="image-page">
+                  <img src="https://via.placeholder.com/400x500/4ecdc4/ffffff?text=Image+1" alt="Image 1" />
                 </div>
-                <div className="timeline-arrow">→</div>
-                <div className="timeline-item">
-                  <div className="timeline-icon">💻</div>
-                  <div className="timeline-content">
-                    <h3 className="timeline-title">Frontend</h3>
-                    <p className="timeline-description">Now building interactive web experiences</p>
-                  </div>
+              </Page>
+              
+              <Page number="3">
+                <div className="image-page">
+                  <img src="https://via.placeholder.com/400x500/ff6b6b/ffffff?text=Image+2" alt="Image 2" />
                 </div>
-              </div>
-            </div>
-            
-            {/* Tools Illustration */}
-            <div className="tools-illustration">
-              <div className="tool-item">
-                <div className="tool-icon">✏️</div>
-                <span className="tool-name">Pencil</span>
-              </div>
-              <div className="tool-item">
-                <div className="tool-icon">🖌️</div>
-                <span className="tool-name">Brush</span>
-              </div>
-              <div className="tool-item">
-                <div className="tool-icon">📏</div>
-                <span className="tool-name">Ruler</span>
-              </div>
-              <div className="tool-item">
-                <div className="tool-icon">📱</div>
-                <span className="tool-name">Tablet</span>
-              </div>
-            </div>
-            
-            {/* Sticky Notes */}
-            <div className="sticky-notes-about">
-              <div className="sticky-note-about">
-                <div className="note-icon-small">💡</div>
-                <p className="note-text">Creative problem solver</p>
-              </div>
-              <div className="sticky-note-about">
-                <div className="note-icon-small">🚀</div>
-                <p className="note-text">Always learning new tech</p>
-              </div>
-              <div className="sticky-note-about">
-                <div className="note-icon-small">🎯</div>
-                <p className="note-text">User-focused approach</p>
-              </div>
-              <div className="sticky-note-about">
-                <div className="note-icon-small">✨</div>
-                <p className="note-text">Attention to detail</p>
-              </div>
-            </div>
-            
-            <div className="about-details">
-              <div className="detail-item">
-                <span className="detail-label">📍 Location:</span>
-                <span className="detail-value">New York, USA</span>
-              </div>
-              <div className="detail-item">
-                <span className="detail-label">🎓 Education:</span>
-                <span className="detail-value">Computer Science</span>
-              </div>
-              <div className="detail-item">
-                <span className="detail-label">💼 Experience:</span>
-                <span className="detail-value">3+ years</span>
-              </div>
-            </div>
+              </Page>
+              
+              <Page number="4">
+                <h3 className="page-title">Моя Анкета</h3>
+                <div className="questionnaire-item">
+                  <span className="question-marker">🎨</span>
+                  <span className="question-text">Любимый цвет:</span>
+                  <span className="answer-text">Синий (как небо в ясный день!)</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">📚</span>
+                  <span className="question-text">Любимый предмет:</span>
+                  <span className="answer-text">Информатика (теперь это моя жизнь 😅)</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">🎵</span>
+                  <span className="question-text">Любимая песня:</span>
+                  <span className="answer-text">Bohemian Rhapsody - Queen</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">🎮</span>
+                  <span className="question-text">Хобби:</span>
+                  <span className="answer-text">Программирование, рисование, чтение фантастики</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">💪</span>
+                  <span className="question-text">Мой девиз:</span>
+                  <span className="answer-text">"Код должен быть красивым и работать!"</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">⭐</span>
+                  <span className="question-text">Мечта:</span>
+                  <span className="answer-text">Создать приложение, которым будут пользоваться миллионы</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">🖌️</span>
+                  <span className="question-text">Что люблю рисовать:</span>
+                  <span className="answer-text">UI/UX дизайны и абстрактные узоры</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">🍕</span>
+                  <span className="question-text">Любимая еда:</span>
+                  <span className="answer-text">Пицца (особенно с пепперони!)</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">🌍</span>
+                  <span className="question-text">Хочу побывать:</span>
+                  <span className="answer-text">В Японии (технологии + культура = мечта!)</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">🚀</span>
+                  <span className="question-text">Любимая технология:</span>
+                  <span className="answer-text">React (создаю магию на вебе!)</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">🎯</span>
+                  <span className="question-text">Цель на год:</span>
+                  <span className="answer-text">Изучить AI и создать умное приложение</span>
+                </div>
+                
+                <div className="questionnaire-item">
+                  <span className="question-marker">🌟</span>
+                  <span className="question-text">Любимое время дня:</span>
+                  <span className="answer-text">Ночь (когда все спят, а я кодирую!)</span>
+                </div>
+              </Page>
+            </HTMLFlipBook>
           </div>
         </motion.section>
 
@@ -217,8 +317,9 @@ function App() {
         >
           <h2 className="section-title">Skills</h2>
           <div className="skills-container">
-            <div className="skill-category-sketch">
-              <h3 className="skill-category-title">Design</h3>
+            {/* Design Skills */}
+            <div className="skill-category-container">
+              <h3 className="skill-category-title">🎨 Design</h3>
               <div className="skill-cards">
                 <div className="skill-card">
                   <span className="skill-name">Figma</span>
@@ -236,13 +337,16 @@ function App() {
                   <span className="skill-name">Adobe XD</span>
                   <div className="skill-note">Wireframing</div>
                 </div>
+                <div className="skill-card">
+                  <span className="skill-name">Illustrator</span>
+                  <div className="skill-note">Vector Graphics</div>
+                </div>
               </div>
             </div>
-            
-            <div className="connecting-line"></div>
-            
-            <div className="skill-category-sketch">
-              <h3 className="skill-category-title">Development</h3>
+
+            {/* Frontend Skills */}
+            <div className="skill-category-container">
+              <h3 className="skill-category-title">💻 Frontend</h3>
               <div className="skill-cards">
                 <div className="skill-card">
                   <span className="skill-name">React</span>
@@ -253,10 +357,6 @@ function App() {
                   <div className="skill-note">Programming</div>
                 </div>
                 <div className="skill-card">
-                  <span className="skill-name">Node.js</span>
-                  <div className="skill-note">Backend</div>
-                </div>
-                <div className="skill-card">
                   <span className="skill-name">TypeScript</span>
                   <div className="skill-note">Type Safety</div>
                 </div>
@@ -265,8 +365,39 @@ function App() {
                   <div className="skill-note">Styling</div>
                 </div>
                 <div className="skill-card">
+                  <span className="skill-name">HTML5</span>
+                  <div className="skill-note">Markup</div>
+                </div>
+                <div className="skill-card">
+                  <span className="skill-name">Next.js</span>
+                  <div className="skill-note">Full Stack</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tools Skills */}
+            <div className="skill-category-container">
+              <h3 className="skill-category-title">🛠️ Tools</h3>
+              <div className="skill-cards">
+                <div className="skill-card">
                   <span className="skill-name">Git</span>
                   <div className="skill-note">Version Control</div>
+                </div>
+                <div className="skill-card">
+                  <span className="skill-name">Node.js</span>
+                  <div className="skill-note">Backend</div>
+                </div>
+                <div className="skill-card">
+                  <span className="skill-name">VS Code</span>
+                  <div className="skill-note">Code Editor</div>
+                </div>
+                <div className="skill-card">
+                  <span className="skill-name">Figma</span>
+                  <div className="skill-note">Design Tool</div>
+                </div>
+                <div className="skill-card">
+                  <span className="skill-name">Postman</span>
+                  <div className="skill-note">API Testing</div>
                 </div>
               </div>
             </div>
@@ -282,83 +413,141 @@ function App() {
         >
           <h2 className="section-title">Projects</h2>
           <div className="notebook-container">
-            {/* Left Page - Project Overview */}
+            {/* Левая часть - блокнот */}
             <div className="notebook-page-left">
+              {/* Вкладки */}
+              <div className="notebook-tabs">
+                <div
+                  className={`tab ${selectedTab === "design" ? "active" : ""}`}
+                  onClick={() => setSelectedTab("design")}
+                >
+                  Design
+                </div>
+                <div
+                  className={`tab ${selectedTab === "code" ? "active" : ""}`}
+                  onClick={() => setSelectedTab("code")}
+                >
+                  Code
+                </div>
+                <div
+                  className={`tab ${selectedTab === "art" ? "active" : ""}`}
+                  onClick={() => setSelectedTab("art")}
+                >
+                  Art
+                </div>
+              </div>
+
+              {/* Список проектов */}
               <div className="sticky-notes-grid">
-                <div className="sticky-note" onClick={() => { setSelectedProject(0); setSelectedImage(0); }}>
-                  <div className="note-icon">🛒</div>
-                  <h3 className="note-title">E-commerce Platform</h3>
-                  <p className="note-description">Full-featured online store</p>
-                </div>
-                <div className="sticky-note" onClick={() => { setSelectedProject(1); setSelectedImage(0); }}>
-                  <div className="note-icon">📋</div>
-                  <h3 className="note-title">Task Manager</h3>
-                  <p className="note-description">Drag & drop task organizer</p>
-                </div>
-                <div className="sticky-note" onClick={() => { setSelectedProject(2); setSelectedImage(0); }}>
-                  <div className="note-icon">🌤️</div>
-                  <h3 className="note-title">Weather App</h3>
-                  <p className="note-description">Beautiful weather forecasts</p>
-                </div>
-                <div className="sticky-note" onClick={() => { setSelectedProject(3); setSelectedImage(0); }}>
-                  <div className="note-icon">🎨</div>
-                  <h3 className="note-title">Portfolio Website</h3>
-                  <p className="note-description">Creative portfolio design</p>
-                </div>
+                {filteredProjects.map((project, idx) => (
+                  <div
+                    key={idx}
+                    className="sticky-note"
+                    onClick={() => {
+                      setSelectedProject(
+                        projectsData.indexOf(project)
+                      );
+                      setSelectedImage(0);
+                    }}
+                  >
+                    <div className="note-icon">{project.icon}</div>
+                    <h3 className="note-title">{project.title}</h3>
+                    <p className="note-description">{project.shortDescription}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Right Page - Project Details */}
+            {/* Правая часть - лист бумаги */}
             <div className="notebook-page-right">
-              <div className="project-details">
-                <div className="project-screenshot">
-                  <img src={projects[selectedProject].gallery[selectedImage]} alt={projects[selectedProject].title} />
-                </div>
-                
-                {/* Gallery between main image and project title */}
-                <div className="project-gallery">
-                  <div className="gallery-container">
-                    {projects[selectedProject].gallery.map((image, index) => (
-                      <img 
-                        key={index} 
-                        src={image} 
-                        alt={`${projects[selectedProject].title} ${index + 1}`}
-                        onClick={() => setSelectedImage(index)}
-                        className={selectedImage === index ? 'gallery-image active' : 'gallery-image'}
-                      />
-                    ))}
+              {selectedProject !== null && (
+                <div className="project-details">
+                  <h3 className="project-detail-title">
+                    {projectsData[selectedProject].title}
+                  </h3>
+
+                  <div className="project-screenshot">
+                    <img
+                      src={
+                        projectsData[selectedProject].images[selectedImage]
+                      }
+                      alt={projectsData[selectedProject].title}
+                    />
                   </div>
-                </div>
-                
-                <div className="project-info">
-                  <h3 className="project-detail-title">{projects[selectedProject].title}</h3>
-                  <p className="project-detail-description">{projects[selectedProject].description}</p>
-                  <div className="project-role">
-                    <strong>Role:</strong> {projects[selectedProject].role}
-                  </div>
-                  <div className="project-tech-detail">
-                    <strong>Technologies:</strong>
-                    <div className="tech-tags">
-                      {projects[selectedProject].technologies.map((tech, index) => (
-                        <span key={index} className="tech-tag">{tech}</span>
+
+                  <div className="project-gallery">
+                    <div className="gallery-container">
+                      {projectsData[selectedProject].images.map((img, index) => (
+                        <img
+                          key={index}
+                          src={img}
+                          alt={`Gallery ${index}`}
+                          className={`gallery-image ${
+                            selectedImage === index ? "active" : ""
+                          }`}
+                          onClick={() => setSelectedImage(index)}
+                        />
                       ))}
                     </div>
                   </div>
+
+                  <div className="project-info">
+                    <p className="project-detail-description">
+                      {projectsData[selectedProject].description}
+                    </p>
+                    <p className="project-role">
+                      <strong>Role:</strong>{" "}
+                      {projectsData[selectedProject].role}
+                    </p>
+                    <div className="project-tech-detail">
+                      <div className="tech-tags">
+                        {projectsData[selectedProject].technologies.map(
+                          (tech, idx) => (
+                            <span key={idx} className="tech-tag">
+                              {tech}
+                            </span>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="project-actions">
-                    <a href={projects[selectedProject].link} target="_blank" rel="noopener noreferrer" className="view-project-btn">
+                    <a
+                      href={projectsData[selectedProject].liveLink}
+                      className="view-project-btn"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       View Project
                     </a>
                     <div className="project-navigation">
-                      <button onClick={() => { setSelectedProject((prev) => prev > 0 ? prev - 1 : projects.length - 1); setSelectedImage(0); }} className="nav-btn">
-                        ← Previous
+                      <button
+                        className="nav-btn"
+                        onClick={() =>
+                          setSelectedProject(
+                            (prev) =>
+                              prev > 0 ? prev - 1 : projectsData.length - 1
+                          )
+                        }
+                      >
+                        Previous
                       </button>
-                      <button onClick={() => { setSelectedProject((prev) => prev < projects.length - 1 ? prev + 1 : 0); setSelectedImage(0); }} className="nav-btn">
-                        Next →
+                      <button
+                        className="nav-btn"
+                        onClick={() =>
+                          setSelectedProject(
+                            (prev) =>
+                              prev < projectsData.length - 1 ? prev + 1 : 0
+                          )
+                        }
+                      >
+                        Next
                       </button>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </motion.section>
