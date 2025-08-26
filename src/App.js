@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HTMLFlipBook from 'react-pageflip';
 import './App.css';
@@ -88,6 +88,29 @@ function App() {
   const [selectedProject, setSelectedProject] = useState(0);
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedTab, setSelectedTab] = useState("design");
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  // Handle navbar visibility on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and not at the top
+        setIsNavbarVisible(false);
+      } else if (currentScrollY <= 100) {
+        // At the top of the page
+        setIsNavbarVisible(true);
+      }
+      // Don't show navbar when scrolling up
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
 
   const projectsData = [
@@ -187,6 +210,27 @@ function App() {
 
   return (
     <div className="notebook-page">
+      {/* Navigation Bar */}
+      <motion.nav 
+        className={`navbar ${isNavbarVisible && lastScrollY > 100 ? 'scrolled' : ''}`}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ 
+          opacity: isNavbarVisible ? 1 : 0, 
+          y: isNavbarVisible ? 0 : -100 
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="nav-container">
+          <div className="nav-links">
+            <a href="#home" className="nav-link">Home</a>
+            <a href="#about" className="nav-link">About</a>
+            <a href="#projects" className="nav-link">Projects</a>
+            <a href="#skills" className="nav-link">Skills</a>
+            <a href="#contact" className="nav-link">Contact</a>
+          </div>
+        </div>
+      </motion.nav>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -194,6 +238,7 @@ function App() {
       >
         {/* Hero Section */}
         <motion.section 
+          id="home"
           className="section hero-section"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -232,6 +277,7 @@ function App() {
 
         {/* About Me Section */}
         <motion.section 
+          id="about"
           className="section"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -356,6 +402,7 @@ function App() {
 
         {/* Skills Section */}
         <motion.section 
+          id="skills"
           className="section"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -452,6 +499,7 @@ function App() {
 
         {/* Projects Section */}
         <motion.section 
+          id="projects"
           className="section"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -601,27 +649,60 @@ function App() {
           </div>
         </motion.section>
 
-        {/* SNS Section */}
+        {/* Contact & Social Media Section */}
         <motion.section 
+          id="contact"
           className="section"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
         >
-          <h2 className="section-title">Social Media</h2>
-          <div className="sns-links">
-            <a href="mailto:your.email@example.com" className="sns-icon-link">
-              <img src="/icons/email.svg" alt="Email" className="sns-icon-img" />
-            </a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
-              <img src="/icons/linkedin.svg" alt="LinkedIn" className="sns-icon-img" />
-            </a>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
-              <img src="/icons/github.svg" alt="GitHub" className="sns-icon-img" />
-            </a>
-            <a href="https://notion.so" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
-              <img src="/icons/notion.svg" alt="Notion" className="sns-icon-img" />
-            </a>
+          <h2 className="section-title">Contact</h2>
+          <div className="contact-social-container">
+            {/* Contact Form - Left Side */}
+            <div className="contact-left">
+              <div className="contact-info">
+                <p className="contact-text">
+                  I'm always open to new opportunities and collaborations. 
+                  Feel free to reach out if you'd like to work together or just say hello!
+                </p>
+                <div className="contact-details">
+                  <div className="contact-item">
+                    <span className="contact-label">Email:</span>
+                    <a href="mailto:your.email@example.com" className="contact-link">
+                      alenafil93@gmail.com
+                    </a>
+                  </div>
+                  <div className="contact-item">
+                    <span className="contact-label">Location:</span>
+                    <span className="contact-text">Seoul, Korea / Remote</span>
+                  </div>
+                  <div className="contact-item">
+                    <span className="contact-label">Availability:</span>
+                    <span className="contact-text">Open to new projects</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Media - Right Side */}
+            <div className="social-right">
+              <h3 className="social-title">Social Media</h3>
+              <div className="sns-links">
+                <a href="mailto:your.email@example.com" className="sns-icon-link">
+                  <img src="/icons/email.svg" alt="Email" className="sns-icon-img" />
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
+                  <img src="/icons/linkedin.svg" alt="LinkedIn" className="sns-icon-img" />
+                </a>
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
+                  <img src="/icons/github.svg" alt="GitHub" className="sns-icon-img" />
+                </a>
+                <a href="https://notion.so" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
+                  <img src="/icons/notion.svg" alt="Notion" className="sns-icon-img" />
+                </a>
+              </div>
+            </div>
           </div>
         </motion.section>
       </motion.div>

@@ -1,5 +1,156 @@
 /* App.css - Основные стили для приложения */
 
+/* Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 25px 0;
+  transition: background 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: white;
+  border-bottom: 2px solid #333;
+  box-shadow: 3px 3px 0px #333;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+}
+
+
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #5a6c7d;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #2c3e50;
+  background: rgba(135, 206, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #87CEEB;
+  transition: width 0.3s ease;
+}
+
+  .nav-link:hover::after {
+    width: 80%;
+  }
+
+  /* Contact & Social Media Section */
+  .contact-social-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .contact-left {
+    text-align: left;
+  }
+
+  .social-right {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+  }
+
+  .contact-info {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 2px solid #e9ecef;
+  }
+
+  .contact-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #5a6c7d;
+    margin-bottom: 30px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .contact-label {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-link, .contact-text {
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .contact-link:hover {
+    color: #3498db;
+    text-decoration: underline;
+  }
+
 .notebook-page {
   min-height: 100vh;
   background: 
@@ -9,6 +160,7 @@
   background-color: #fefefe;
   font-family: 'Indie Flower', cursive;
   padding: 20px;
+  padding-top: 80px;
   position: relative;
 }
 
@@ -50,11 +202,11 @@
 /* Hero Section */
 .hero-section {
   text-align: center;
-  padding: 80px 20px;
+  padding: 120px 40px;
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
