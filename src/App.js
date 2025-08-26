@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './App.css';
 
-// Projects datagggggg
+// Projects dataр
 const projects = [
   {
     title: "E-commerce Platform",
