@@ -222,11 +222,26 @@ function App() {
       >
         <div className="nav-container">
           <div className="nav-links">
-            <a href="#home" className="nav-link">Home</a>
-            <a href="#about" className="nav-link">About</a>
-            <a href="#projects" className="nav-link">Projects</a>
-            <a href="#skills" className="nav-link">Skills</a>
-            <a href="#contact" className="nav-link">Contact</a>
+            <a href="#home" className="nav-link">
+              Home
+              <img src="/line.svg" alt="" className="nav-line" />
+            </a>
+            <a href="#about" className="nav-link">
+              About
+              <img src="/line.svg" alt="" className="nav-line" />
+            </a>
+            <a href="#projects" className="nav-link">
+              Projects
+              <img src="/line.svg" alt="" className="nav-line" />
+            </a>
+            <a href="#skills" className="nav-link">
+              Skills
+              <img src="/line.svg" alt="" className="nav-line" />
+            </a>
+            <a href="#contact" className="nav-link">
+              Contact
+              <img src="/line.svg" alt="" className="nav-line" />
+            </a>
           </div>
         </div>
       </motion.nav>
@@ -269,8 +284,8 @@ function App() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2, duration: 0.8 }}
             >
-              <a href="#projects" className="hero-btn">View Projects</a>
-              <a href="#contact" className="hero-btn">Contact</a>
+              <a href="#projects" className="view-projects-btn">View Projects</a>
+              <a href="#contact" className="contact-btn">Contact</a>
             </motion.div>
           </div>
         </motion.section>
@@ -536,7 +551,7 @@ function App() {
                 {filteredProjects.map((project, idx) => (
                   <div
                     key={idx}
-                    className="sticky-note"
+                    className="project-card"
                     onClick={() => {
                       setSelectedProject(
                         projectsData.indexOf(project)
@@ -544,9 +559,12 @@ function App() {
                       setSelectedImage(0);
                     }}
                   >
-                    <div className="note-icon">{project.icon}</div>
-                    <h3 className="note-title">{project.title}</h3>
-                    <p className="note-description">{project.shortDescription}</p>
+                    <img src="/project.svg" alt="" className="project-svg" />
+                    <div className="project-content">
+                      <div className="note-icon">{project.icon}</div>
+                      <h3 className="note-title">{project.title}</h3>
+                      <p className="note-description">{project.shortDescription}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -620,7 +638,7 @@ function App() {
                     </a>
                     <div className="project-navigation">
                       <button
-                        className="nav-btn"
+                        className="previous-btn"
                         onClick={() =>
                           setSelectedProject(
                             (prev) =>
@@ -631,7 +649,7 @@ function App() {
                         Previous
                       </button>
                       <button
-                        className="nav-btn"
+                        className="next-btn"
                         onClick={() =>
                           setSelectedProject(
                             (prev) =>
@@ -662,24 +680,27 @@ function App() {
             {/* Contact Form - Left Side */}
             <div className="contact-left">
               <div className="contact-info">
-                <p className="contact-text">
-                  I'm always open to new opportunities and collaborations. 
-                  Feel free to reach out if you'd like to work together or just say hello!
-                </p>
-                <div className="contact-details">
-                  <div className="contact-item">
-                    <span className="contact-label">Email:</span>
-                    <a href="mailto:your.email@example.com" className="contact-link">
-                      alenafil93@gmail.com
-                    </a>
-                  </div>
-                  <div className="contact-item">
-                    <span className="contact-label">Location:</span>
-                    <span className="contact-text">Seoul, Korea / Remote</span>
-                  </div>
-                  <div className="contact-item">
-                    <span className="contact-label">Availability:</span>
-                    <span className="contact-text">Open to new projects</span>
+                <img src="/contact.svg" alt="" className="contact-svg" />
+                <div className="contact-content">
+                  <p className="contact-text">
+                    I'm always open to new opportunities and collaborations. 
+                    Feel free to reach out if you'd like to work together or just say hello!
+                  </p>
+                  <div className="contact-details">
+                    <div className="contact-item">
+                      <span className="contact-label">Email:</span>
+                      <a href="mailto:your.email@example.com" className="contact-link">
+                        alenafil93@gmail.com
+                      </a>
+                    </div>
+                    <div className="contact-item">
+                      <span className="contact-label">Location:</span>
+                      <span className="contact-text">Seoul, Korea / Remote</span>
+                    </div>
+                    <div className="contact-item">
+                      <span className="contact-label">Availability:</span>
+                      <span className="contact-text">Open to new projects</span>
+                    </div>
                   </div>
                 </div>
               </div>

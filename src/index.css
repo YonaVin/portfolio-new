@@ -459,84 +459,13 @@ body {
 
 .notebook-page-left {
   flex: 1;
-  background: rgba(255, 255, 255, 0.9);
+  background: transparent;
   border-radius: 15px;
   padding: 30px;
   border: 2px solid #333;
   box-shadow: 5px 5px 0px #333;
   transform: rotate(-1deg);
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23000" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>') 12 12, auto;
-}
-
-.notebook-page-right {
-  flex: 1.5;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  padding: 30px;
-  border: 2px solid #333;
-  box-shadow: 5px 5px 0px #333;
-  transform: rotate(1deg);
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23000" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>') 12 12, auto;
-}
-
-/* Sticky Notes Grid */
-.sticky-notes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.sticky-note {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 3px 3px 0px #333;
-  transform: rotate(-2deg);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
-}
-
-.sticky-note:nth-child(2) {
-  background: linear-gradient(135deg, #4ecdc4, #6ee7df);
-  transform: rotate(1deg);
-}
-
-.sticky-note:nth-child(3) {
-  background: linear-gradient(135deg, #45b7d1, #67c9e1);
-  transform: rotate(-1deg);
-}
-
-.sticky-note:nth-child(4) {
-  background: linear-gradient(135deg, #96ceb4, #b8e6c8);
-  transform: rotate(2deg);
-}
-
-.sticky-note:hover {
-  transform: rotate(0deg) translateY(-5px);
-  box-shadow: 5px 5px 0px #333;
-}
-
-.note-icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.note-title {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 1.1rem;
-  color: white;
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-.note-description {
-  font-family: 'Indie Flower', cursive;
-  font-size: 0.9rem;
-  color: white;
-  text-align: center;
-  opacity: 0.9;
 }
 
 /* Project Details */
@@ -649,46 +578,11 @@ body {
 
 
 
-.view-project-btn {
-  background: white;
-  color: black;
-  padding: 12px 24px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  border: 2px solid #333;
-  box-shadow: 3px 3px 0px #333;
-}
 
-.view-project-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 5px 5px 0px #333;
-}
 
-.project-navigation {
-  display: flex;
-  gap: 10px;
-}
 
-.nav-btn {
-  background: white;
-  border: 2px solid #333;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-family: 'Phitradesign Handwritten', cursive;
-  font-size: 0.9rem;
-  color: black;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 2px 2px 0px #333;
-}
 
-.nav-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 4px 4px 0px #333;
-}
+
 
 .project-card:hover {
   transform: translateY(-5px);
@@ -805,14 +699,7 @@ body {
     padding: 20px;
   }
   
-  .sticky-notes-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-  }
-  
-  .sticky-note {
-    padding: 15px;
-  }
+
   
   .project-actions {
     flex-direction: column;
