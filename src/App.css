@@ -239,7 +239,10 @@
 /* Hero Section */
 .hero-section {
   text-align: center;
-  padding: 120px 40px;
+  padding: 150px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
@@ -248,26 +251,26 @@
 }
 
 .hero-subtitle {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #34495e;
-  margin: 20px 0;
+  margin: 25px 0;
   font-weight: 600;
   font-family: 'Indie Flower', cursive;
 }
 
 .sketch-text {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   line-height: 1.6;
   color: #5a6c7d;
-  margin: 20px 0;
+  margin: 25px 0;
   font-family: 'Indie Flower', cursive;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 .view-projects-btn {
@@ -1301,6 +1304,245 @@
   100% {
     transform: translateY(0) scale(1);
     opacity: 0.7;
+  }
+}
+
+/* Certificates Section */
+.certificates-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.certificate-item {
+  background: white;
+  border: 2px solid #25282d;
+  border-radius: 8px;
+  padding: 30px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.certificate-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+}
+
+.certificate-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.certificate-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 50%;
+  border: 2px solid #e9ecef;
+}
+
+.certificate-content {
+  flex: 1;
+}
+
+.certificate-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.4rem;
+  color: #25282d;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.certificate-description {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.1rem;
+  color: #495057;
+  margin: 0 0 5px 0;
+  font-weight: 500;
+}
+
+.certificate-organization {
+  font-family: 'Indie Flower', cursive;
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive design for certificates */
+@media (max-width: 768px) {
+  .certificates-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px 15px;
+  }
+  
+  .certificate-item {
+    padding: 20px;
+    gap: 15px;
+  }
+  
+  .certificate-icon {
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .certificate-title {
+    font-size: 1.2rem;
+  }
+  
+  .certificate-description {
+    font-size: 1rem;
+  }
+  
+  .certificate-organization {
+    font-size: 0.9rem;
+  }
+}
+
+/* Interests Section */
+
+.interests-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.interest-category {
+  background: white;
+  border: 2px solid #25282d;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.interest-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #ff9a9e, #fecfef, #fecfef, #ff9a9e);
+}
+
+.interest-category:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.interest-category-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5rem;
+  color: #25282d;
+  margin: 0 0 20px 0;
+  text-align: center;
+  position: relative;
+}
+
+.interest-category-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff9a9e, #fecfef);
+  border-radius: 1px;
+}
+
+.interest-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.interest-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.interest-item:hover {
+  background: #e9ecef;
+  border-left-color: #adb5bd;
+  transform: translateX(5px);
+}
+
+.interest-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 30px;
+  text-align: center;
+}
+
+.interest-text {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1rem;
+  color: #495057;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Responsive design for interests */
+@media (max-width: 768px) {
+  .interests-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px 15px;
+  }
+  
+  .interest-category {
+    padding: 20px;
+  }
+  
+  .interest-category-title {
+    font-size: 1.3rem;
+  }
+  
+  .interest-item {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .interest-icon {
+    font-size: 1.3rem;
+    width: 25px;
+  }
+  
+  .interest-text {
+    font-size: 0.95rem;
   }
 }
 

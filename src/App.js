@@ -261,11 +261,21 @@ function App() {
               Skills
               <img src="/line.svg" alt="" className="nav-line" />
             </a>
-            <a href="#projects" className="nav-link">
-              <img src="/projectsicon.svg" alt="" className="nav-icon" />
-              Projects
-              <img src="/line.svg" alt="" className="nav-line" />
-            </a>
+                            <a href="#projects" className="nav-link">
+                  <img src="/projectsicon.svg" alt="" className="nav-icon" />
+                  Projects
+                  <img src="/line.svg" alt="" className="nav-line" />
+                </a>
+                <a href="#certificates" className="nav-link">
+                  <img src="/awards.svg" alt="" className="nav-icon" />
+                  Certificates
+                  <img src="/line.svg" alt="" className="nav-line" />
+                </a>
+                <a href="#interests" className="nav-link">
+                  <img src="/fun.svg" alt="" className="nav-icon" />
+                  Interests
+                  <img src="/line.svg" alt="" className="nav-line" />
+                </a>
             <a href="#contact" className="nav-link">
               <img src="/email1.svg" alt="" className="nav-icon" />
               Contact
@@ -702,6 +712,174 @@ function App() {
                 </div>
               )}
             </div>
+          </div>
+        </motion.section>
+
+        {/* Certificates Section */}
+        <motion.section 
+          id="certificates"
+          className="section"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <h2 className="section-title">Certificates</h2>
+          <div className="certificates-container">
+            <div className="certificate-item">
+              <div className="certificate-icon">🎨</div>
+              <div className="certificate-content">
+                <h3 className="certificate-title">Google UX Design</h3>
+                <p className="certificate-description">Professional Certificate</p>
+                <p className="certificate-organization">Google & Coursera • 2023</p>
+              </div>
+            </div>
+            
+            <div className="certificate-item">
+              <div className="certificate-icon">💻</div>
+              <div className="certificate-content">
+                <h3 className="certificate-title">React Development</h3>
+                <p className="certificate-description">Frontend Development</p>
+                <p className="certificate-organization">Meta • 2023</p>
+              </div>
+            </div>
+            
+            <div className="certificate-item">
+              <div className="certificate-icon">🎯</div>
+              <div className="certificate-content">
+                <h3 className="certificate-title">UI/UX Design Fundamentals</h3>
+                <p className="certificate-description">Design Principles & Tools</p>
+                <p className="certificate-organization">Udemy • 2023</p>
+              </div>
+            </div>
+            
+            <div className="certificate-item">
+              <div className="certificate-icon">🚀</div>
+              <div className="certificate-content">
+                <h3 className="certificate-title">JavaScript Advanced</h3>
+                <p className="certificate-description">Modern JavaScript ES6+</p>
+                <p className="certificate-organization">freeCodeCamp • 2023</p>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Interests Section */}
+        <motion.section 
+          id="interests"
+          className="section"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
+          <h2 className="section-title">Interests</h2>
+                      <div className="interests-container">
+                          <div className="interest-category">
+                <h3 className="interest-category-title">🎮 Gaming</h3>
+                <div className="interest-items">
+                  <div className="interest-item">
+                    <span className="interest-icon">🎯</span>
+                    <span className="interest-text">Favorite game: Stardew Valley (relaxing farming sim)</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">🏆</span>
+                    <span className="interest-text">Completed 100% achievements in 3 games</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">🎲</span>
+                    <span className="interest-text">Love puzzle games and strategy RPGs</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="interest-category">
+                <h3 className="interest-category-title">🎨 Creative</h3>
+                <div className="interest-items">
+                  <div className="interest-item">
+                    <span className="interest-icon">🖌️</span>
+                    <span className="interest-text">Digital art enthusiast - draw daily</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">📸</span>
+                    <span className="interest-text">Photography lover (especially street photography)</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">🎵</span>
+                    <span className="interest-text">Learning to play ukulele (slowly but surely!)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="interest-category">
+                <h3 className="interest-category-title">🌍 Travel & Culture</h3>
+                <div className="interest-items">
+                  <div className="interest-item">
+                    <span className="interest-icon">🗺️</span>
+                    <span className="interest-text">Visited 8 countries so far</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">🍜</span>
+                    <span className="interest-text">Foodie - love trying new cuisines</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">📚</span>
+                    <span className="interest-text">Learning Korean and Japanese</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="interest-category">
+                <h3 className="interest-category-title">💻 Tech & Learning</h3>
+                <div className="interest-items">
+                  <div className="interest-item">
+                    <span className="interest-icon">🤖</span>
+                    <span className="interest-text">Fascinated by AI and machine learning</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">📱</span>
+                    <span className="interest-text">Built 5 personal apps for fun</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">🔬</span>
+                    <span className="interest-text">Always learning new technologies</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="interest-category">
+                <h3 className="interest-category-title">🏃‍♀️ Lifestyle</h3>
+                <div className="interest-items">
+                  <div className="interest-item">
+                    <span className="interest-icon">☕</span>
+                    <span className="interest-text">Coffee addict (3 cups daily minimum!)</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">🌙</span>
+                    <span className="interest-text">Night owl - most productive after 10 PM</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">🐱</span>
+                    <span className="interest-text">Cat person (have 2 adorable cats)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="interest-category">
+                <h3 className="interest-category-title">🎯 Goals & Dreams</h3>
+                <div className="interest-items">
+                  <div className="interest-item">
+                    <span className="interest-icon">🚀</span>
+                    <span className="interest-text">Want to work at a big tech company</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">🏠</span>
+                    <span className="interest-text">Dream of having a home office with a view</span>
+                  </div>
+                  <div className="interest-item">
+                    <span className="interest-icon">🌟</span>
+                    <span className="interest-text">Create an app that helps millions of people</span>
+                  </div>
+                </div>
+              </div>
           </div>
         </motion.section>
 
