@@ -38,27 +38,44 @@
   font-family: 'Indie Flower', cursive;
   font-size: 1.2rem;
   font-weight: 900;
-  color: #5a6c7d;
+  color: #25282d;
   text-decoration: none;
   padding: 12px 20px;
   border-radius: 20px;
   transition: all 0.3s ease;
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  gap: 8px;
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
 }
 
 .nav-line {
-  width: 80%;
+  width: 100%;
   height: auto;
   margin-top: 5px;
-  max-width: 60px;
+  max-width: 70px;
+  position: absolute;
+  opacity: 70%;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-link:hover {
   color: #2c3e50;
   transform: translateY(-2px);
+}
+
+.nav-link:hover .nav-icon {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
   /* Contact & Social Media Section */
@@ -320,13 +337,13 @@
   margin: 0 auto;
   position: relative;
   z-index: 100;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
 }
 
 
 
 .book-page {
-  background-color: hsl(35, 55%, 98%);
+  background-color: hsl(0, 0%, 97%);
   background-image: radial-gradient(circle, #d4d4d4 1px, transparent 1px);
   background-size: 20px 20px;
   padding: 30px;
@@ -349,24 +366,28 @@
 
 /* Закругляем только внешние углы */
 .book-page:nth-child(odd) {
-  border-radius: 10px 0 0 10px;
+  border-radius: 25px 0 0 25px;
+  border: 10px solid #b49c8b;
+  border-right: none;
 }
 
 .book-page:nth-child(even) {
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 25px 25px 0;
+  border: 10px solid #b49c8b;
+  border-left: none;
 }
 
 /* Черная рамка только для внешних краев */
 .book-page:nth-child(odd)::after {
   content: '';
   position: absolute;
-  top: -5px;
-  left: -5px;
-  bottom: -5px;
-  width: 5px;
-  height: calc(100% + 10px);
-  background: #000000;
-  border-radius: 10px 0 0 10px;
+  top: -10px;
+  left: -10px;
+  bottom: -10px;
+  width: 10px;
+  height: calc(100% + 14px);
+  background: #b49c8b;
+  border-radius: 40px 0 0 40px;
   pointer-events: none;
   z-index: -1;
 }
@@ -374,12 +395,12 @@
 .book-page:nth-child(odd)::before {
   content: '';
   position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  height: 5px;
-  background: #000000;
-  border-radius: 10px 0 0 0;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  height: 10px;
+  background: #b49c8b;
+  border-radius: 40px 0 0 0;
   pointer-events: none;
   z-index: -1;
 }
@@ -387,12 +408,12 @@
 .book-page:nth-child(odd) .bottom-border {
   content: '';
   position: absolute;
-  bottom: -5px;
-  left: -5px;
-  right: -5px;
-  height: 5px;
-  background: #000000;
-  border-radius: 0 0 0 10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  height: 10px;
+  background: #b49c8b;
+  border-radius: 0 0 0 40px;
   pointer-events: none;
   z-index: -1;
 }
@@ -400,13 +421,13 @@
 .book-page:nth-child(even)::after {
   content: '';
   position: absolute;
-  top: -5px;
-  right: -5px;
-  bottom: -5px;
-  width: 5px;
-  height: calc(100% + 10px);
-  background: #000000;
-  border-radius: 0 10px 10px 0;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  width: 10px;
+  height: calc(100% + 14px);
+  background: #b49c8b;
+  border-radius: 0 40px 40px 0;
   pointer-events: none;
   z-index: 10;
 }
@@ -414,12 +435,12 @@
 .book-page:nth-child(even)::before {
   content: '';
   position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  height: 5px;
-  background: #000000;
-  border-radius: 0 10px 0 0;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  height: 10px;
+  background: #b49c8b;
+  border-radius: 0 40px 0 0;
   pointer-events: none;
   z-index: -1;
 }
@@ -427,12 +448,12 @@
 .book-page:nth-child(even) .bottom-border {
   content: '';
   position: absolute;
-  bottom: -5px;
-  left: -5px;
-  right: -5px;
-  height: 5px;
-  background: #000000;
-  border-radius: 0 0 10px 0;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  height: 10px;
+  background: #b49c8b;
+  border-radius: 0 0 40px 0;
   pointer-events: none;
   z-index: -1;
 }
@@ -440,13 +461,13 @@
 .book-page:nth-child(even) .right-border {
   content: '';
   position: absolute;
-  top: -5px;
-  right: -5px;
-  bottom: -5px;
-  width: 5px;
-  height: calc(100% + 10px);
-  background: #000000;
-  border-radius: 0 10px 10px 0;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  width: 10px;
+  height: calc(100% + 14px);
+  background: #b49c8b;
+  border-radius: 0 40px 40px 0;
   pointer-events: none;
   z-index: 15;
 }
@@ -454,13 +475,13 @@
 .book-page:nth-child(odd) .left-border {
   content: '';
   position: absolute;
-  top: -5px;
-  left: -5px;
-  bottom: -5px;
-  width: 5px;
-  height: calc(100% + 10px);
-  background: #000000;
-  border-radius: 10px 0 0 10px;
+  top: -10px;
+  left: -10px;
+  bottom: -10px;
+  width: 10px;
+  height: calc(100% + 14px);
+  background: #b49c8b;
+  border-radius: 40px 0 0 40px;
   pointer-events: none;
   z-index: 25;
 }
@@ -499,9 +520,9 @@
   height: 0;
   border-style: solid;
   border-width: 50px 50px 0 0;
-  border-color: #e0e0e0 transparent transparent transparent;
+  border-color: #fffef8 transparent transparent transparent;
   box-shadow: 
-    -3px -3px 6px rgba(0,0,0,0.2),
+    -3px -3px 6px rgba(67, 67, 67, 0.2),
     -1px -1px 3px rgba(0,0,0,0.1),
     inset 2px 2px 4px rgba(255,255,255,0.3);
   z-index: 10;
@@ -513,8 +534,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: 2px solid #333;
+  background: linear-gradient(135deg, #e7ecff 0%, #f7efff 100%);
+  border: 2px solid #5c5c5c;
 }
 
 .cover-title {
@@ -539,7 +560,7 @@
   font-family: 'Permanent Marker', cursive;
   font-size: 1.4rem;
   font-weight: bold;
-  color: #ff6b6b;
+  color: #0abacd;
   text-align: center;
   margin-bottom: 15px;
 }
@@ -553,7 +574,7 @@
 .footer-text {
   font-family: 'Comic Sans MS', cursive, sans-serif;
   font-size: 1rem;
-  color: #ff6b6b;
+  color: #005a5c;
   font-weight: bold;
 }
 
@@ -600,7 +621,7 @@
   font-family: 'Phitradesign Handwritten', cursive;
   font-size: 1.0rem;
   font-weight: bold;
-  color: #ff6b6b;
+  color: #00417d;
   margin-right: 10px;
   min-width: 120px;
 }
@@ -642,59 +663,95 @@
 .skills-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
-  margin-top: 40px;
+  gap: 180px;
+  margin-top: 140px;
+  min-height: 450px;
+  padding-bottom: 30px;
 }
 
 .skill-category-container {
-  background: white;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
   position: relative;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   overflow: visible;
 }
 
+.skills-svg {
+  width: 200%;
+  height: auto;
+  position: absolute;
+  top: 0%;
+  left: -50%;
+  z-index: 1;
+  object-fit: contain;
+}
+
+/* Смещаем первый SVG влево */
+.skill-left .skills-svg {
+  left: -90%;
+}
+
+/* Смещаем третий SVG вправо */
+.skill-right .skills-svg {
+  left: -10%;
+}
+
+.skills-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+}
 
 
-/* Завёрнутый уголок */
-.skill-category-container::before {
+
+/* Убрали старые псевдоэлементы, так как теперь используем SVG */
+
+.skill-category-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #4c4d4e;
+}
+
+/* Смещаем заголовок Design влево */
+.skill-left .skill-category-title {
+  text-align: left;
+  margin-left: -80px;
+  border-bottom: none;
+  position: relative;
+}
+
+/* Добавляем линию под заголовком Design */
+.skill-left .skill-category-title::after {
   content: '';
   position: absolute;
   bottom: 0;
-  right: 0;
-  width: 30px;
-  height: 30px;
-  background: white;
-  border-left: 2px solid #ccc;
-  border-top: 2px solid #ccc;
-  border-radius: 0 0 0 5px;
-  transform: rotate(-45deg);
-  transform-origin: bottom right;
+  left: 20%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 1px;
+  background: #4c4d4e;
 }
 
+/* Смещаем заголовок Tools вправо */
+.skill-right .skill-category-title {
+  text-align: right;
+  margin-right: -80px;
+  border-bottom: none;
+  position: relative;
+}
 
-
-.skill-category-container::before {
+/* Добавляем линию под заголовком Tools */
+.skill-right .skill-category-title::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #87CEEB, #3498db, #87CEEB);
-  border-radius: 15px 15px 0 0;
-}
-
-.skill-category-title {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #2c3e50;
-  margin-bottom: 15px;
-  text-align: center;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e9ecef;
+  bottom: 0;
+  left: 85%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 1px;
+  background: #4c4d4e;
 }
 
 @keyframes fadeIn {
@@ -1156,6 +1213,94 @@
   
   .contact-social-container {
     gap: 40px;
+  }
+}
+
+/* Скрываем дублирующиеся элементы при переворачивании */
+.questionnaire-book .stf__parent {
+  overflow: hidden;
+}
+
+.questionnaire-book .stf__wrapper {
+  overflow: hidden;
+}
+
+.questionnaire-book .stf__page {
+  overflow: hidden;
+}
+
+/* Скрываем все возможные тени и дублирующиеся элементы */
+.questionnaire-book .stf__shadow,
+.questionnaire-book .stf__shadowLeft,
+.questionnaire-book .stf__shadowRight,
+.questionnaire-book .stf__hardShadow,
+.questionnaire-book .stf__hardShadowLeft,
+.questionnaire-book .stf__hardShadowRight,
+.questionnaire-book .stf__backShadow,
+.questionnaire-book .stf__backShadowLeft,
+.questionnaire-book .stf__backShadowRight,
+.questionnaire-book .stf__backHardShadow,
+.questionnaire-book .stf__backHardShadowLeft,
+.questionnaire-book .stf__backHardShadowRight {
+  display: none !important;
+}
+
+.questionnaire-book .stf__block {
+  overflow: hidden;
+}
+
+.questionnaire-book .stf__pageWrapper {
+  overflow: hidden;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-2px);
+}
+
+.scroll-to-top img {
+  width: 50px;
+  height: 50px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.scroll-to-top:hover img {
+  opacity: 1;
+}
+
+.scroll-to-top.clicked img {
+  animation: flyUp 0.6s ease-out;
+}
+
+@keyframes flyUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
   }
 }
 

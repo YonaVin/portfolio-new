@@ -90,6 +90,7 @@ function App() {
   const [selectedTab, setSelectedTab] = useState("design");
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Handle navbar visibility on scroll
   useEffect(() => {
@@ -105,12 +106,35 @@ function App() {
       }
       // Don't show navbar when scrolling up
       
+      // Show/hide scroll to top button
+      if (currentScrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+      
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
+
+  const scrollToTop = () => {
+    // Add animation class
+    const button = document.querySelector('.scroll-to-top');
+    if (button) {
+      button.classList.add('clicked');
+      setTimeout(() => {
+        button.classList.remove('clicked');
+      }, 600);
+    }
+    
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
 
   const projectsData = [
@@ -223,22 +247,27 @@ function App() {
         <div className="nav-container">
           <div className="nav-links">
             <a href="#home" className="nav-link">
+              <img src="/home.svg" alt="" className="nav-icon" />
               Home
               <img src="/line.svg" alt="" className="nav-line" />
             </a>
             <a href="#about" className="nav-link">
+              <img src="/about.svg" alt="" className="nav-icon" />
               About
               <img src="/line.svg" alt="" className="nav-line" />
             </a>
-            <a href="#projects" className="nav-link">
-              Projects
-              <img src="/line.svg" alt="" className="nav-line" />
-            </a>
             <a href="#skills" className="nav-link">
+              <img src="/skillsicon.svg" alt="" className="nav-icon" />
               Skills
               <img src="/line.svg" alt="" className="nav-line" />
             </a>
+            <a href="#projects" className="nav-link">
+              <img src="/projectsicon.svg" alt="" className="nav-icon" />
+              Projects
+              <img src="/line.svg" alt="" className="nav-line" />
+            </a>
             <a href="#contact" className="nav-link">
+              <img src="/email1.svg" alt="" className="nav-icon" />
               Contact
               <img src="/line.svg" alt="" className="nav-line" />
             </a>
@@ -426,86 +455,95 @@ function App() {
           <h2 className="section-title">Skills</h2>
           <div className="skills-container">
             {/* Design Skills */}
-            <div className="skill-category-container">
-              <h3 className="skill-category-title">🎨 Design</h3>
-              <div className="skill-cards">
-                <div className="skill-card">
-                  <span className="skill-name">Figma</span>
-                  <div className="skill-note">UI/UX Design</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">Photoshop</span>
-                  <div className="skill-note">Image Editing</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">Sketch</span>
-                  <div className="skill-note">Prototyping</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">Adobe XD</span>
-                  <div className="skill-note">Wireframing</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">Illustrator</span>
-                  <div className="skill-note">Vector Graphics</div>
+            <div className="skill-category-container skill-left">
+              <img src="/skills.svg" alt="" className="skills-svg" />
+              <div className="skills-content">
+                <h3 className="skill-category-title">🎨 Design</h3>
+                <div className="skill-cards">
+                  <div className="skill-card">
+                    <span className="skill-name">Figma</span>
+                    <div className="skill-note">UI/UX Design</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">Photoshop</span>
+                    <div className="skill-note">Image Editing</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">Sketch</span>
+                    <div className="skill-note">Prototyping</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">Adobe XD</span>
+                    <div className="skill-note">Wireframing</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">Illustrator</span>
+                    <div className="skill-note">Vector Graphics</div>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Frontend Skills */}
             <div className="skill-category-container">
-              <h3 className="skill-category-title">💻 Frontend</h3>
-              <div className="skill-cards">
-                <div className="skill-card">
-                  <span className="skill-name">React</span>
-                  <div className="skill-note">Frontend Framework</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">JavaScript</span>
-                  <div className="skill-note">Programming</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">TypeScript</span>
-                  <div className="skill-note">Type Safety</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">CSS/SASS</span>
-                  <div className="skill-note">Styling</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">HTML5</span>
-                  <div className="skill-note">Markup</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">Next.js</span>
-                  <div className="skill-note">Full Stack</div>
+              <img src="/skills2.svg" alt="" className="skills-svg" />
+              <div className="skills-content">
+                <h3 className="skill-category-title">💻 Frontend</h3>
+                <div className="skill-cards">
+                  <div className="skill-card">
+                    <span className="skill-name">React</span>
+                    <div className="skill-note">Frontend Framework</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">JavaScript</span>
+                    <div className="skill-note">Programming</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">TypeScript</span>
+                    <div className="skill-note">Type Safety</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">CSS/SASS</span>
+                    <div className="skill-note">Styling</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">HTML5</span>
+                    <div className="skill-note">Markup</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">Next.js</span>
+                    <div className="skill-note">Full Stack</div>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Tools Skills */}
-            <div className="skill-category-container">
-              <h3 className="skill-category-title">🛠️ Tools</h3>
-              <div className="skill-cards">
-                <div className="skill-card">
-                  <span className="skill-name">Git</span>
-                  <div className="skill-note">Version Control</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">Node.js</span>
-                  <div className="skill-note">Backend</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">VS Code</span>
-                  <div className="skill-note">Code Editor</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">Figma</span>
-                  <div className="skill-note">Design Tool</div>
-                </div>
-                <div className="skill-card">
-                  <span className="skill-name">Postman</span>
-                  <div className="skill-note">API Testing</div>
+            <div className="skill-category-container skill-right">
+              <img src="/skills3.svg" alt="" className="skills-svg" />
+              <div className="skills-content">
+                <h3 className="skill-category-title">🛠️ Tools</h3>
+                <div className="skill-cards">
+                  <div className="skill-card">
+                    <span className="skill-name">Git</span>
+                    <div className="skill-note">Version Control</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">Node.js</span>
+                    <div className="skill-note">Backend</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">VS Code</span>
+                    <div className="skill-note">Code Editor</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">Figma</span>
+                    <div className="skill-note">Design Tool</div>
+                  </div>
+                  <div className="skill-card">
+                    <span className="skill-name">Postman</span>
+                    <div className="skill-note">API Testing</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -689,7 +727,7 @@ function App() {
                   <div className="contact-details">
                     <div className="contact-item">
                       <span className="contact-label">Email:</span>
-                      <a href="mailto:your.email@example.com" className="contact-link">
+                      <a href="mailto:alenafil93@gmail.com" className="contact-link">
                         alenafil93@gmail.com
                       </a>
                     </div>
@@ -710,16 +748,16 @@ function App() {
             <div className="social-right">
               <h3 className="social-title">Social Media</h3>
               <div className="sns-links">
-                <a href="mailto:your.email@example.com" className="sns-icon-link">
+                <a href="mailto:alenafil93@gmail.com" className="sns-icon-link">
                   <img src="/icons/email.svg" alt="Email" className="sns-icon-img" />
                 </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
+                <a href="https://www.linkedin.com/in/yonavin" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
                   <img src="/icons/linkedin.svg" alt="LinkedIn" className="sns-icon-img" />
                 </a>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
+                <a href="https://github.com/YonaVin" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
                   <img src="/icons/github.svg" alt="GitHub" className="sns-icon-img" />
                 </a>
-                <a href="https://notion.so" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
+                <a href="https://77388.notion.site/Hello-I-m-Alyona-c708d71b4a8644258648229e226b0840?source=copy_link" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
                   <img src="/icons/notion.svg" alt="Notion" className="sns-icon-img" />
                 </a>
               </div>
@@ -727,6 +765,21 @@ function App() {
           </div>
         </motion.section>
       </motion.div>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <motion.button
+          className="scroll-to-top"
+          onClick={scrollToTop}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.5 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <img src="/up.svg" alt="Scroll to top" />
+        </motion.button>
+      )}
     </div>
   );
 }
