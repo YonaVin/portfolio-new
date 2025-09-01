@@ -1591,10 +1591,20 @@
   display: none;
 }
 
+/* Hide mobile book navigation on desktop */
+.mobile-book-navigation {
+  display: none;
+}
+
 @media (max-width: 768px) {
   /* Show mobile menu button on mobile */
   .mobile-menu-btn {
     display: block;
+  }
+
+  /* Show mobile book navigation on mobile */
+  .mobile-book-navigation {
+    display: flex;
   }
 
   /* Hide desktop navigation on mobile */
@@ -1787,6 +1797,50 @@
   .book-container {
     min-height: auto;
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Mobile Book Navigation */
+  .mobile-book-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .mobile-nav-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 80px;
+  }
+
+  .mobile-nav-btn:hover:not(:disabled) {
+    background: #555;
+    transform: translateY(-2px);
+  }
+
+  .mobile-nav-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .page-indicator {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 500;
+    padding: 0 10px;
   }
   
   .questionnaire-book {
