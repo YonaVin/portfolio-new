@@ -1596,6 +1596,12 @@
   .mobile-menu-btn {
     display: block;
   }
+
+  /* Hide desktop navigation on mobile */
+  .nav-links {
+    display: none;
+  }
+
   /* Navigation - мобильное меню */
   .navbar {
     padding: 15px 0;
@@ -1605,34 +1611,12 @@
   
   .nav-container {
     padding: 0 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
   
-  .nav-links {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .nav-link {
-    font-size: 0.7rem;
-    padding: 8px 4px;
-    border-radius: 12px;
-    flex-direction: column;
-    gap: 2px;
-    text-align: center;
-    min-width: 60px;
-  }
-  
-  .nav-icon {
-    width: 16px;
-    height: 16px;
-  }
-  
-  .nav-line {
-    display: none;
-  }
+
 
   /* Mobile Menu Button Styles */
   .mobile-menu-btn {
