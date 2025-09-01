@@ -1909,10 +1909,10 @@
   
   .contact-content {
     padding: 20px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: 2px solid #333;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
     position: static;
   }
   
@@ -1940,11 +1940,11 @@
   }
   
   .social-right {
-    background: white;
-    border-radius: 15px;
+    background: transparent;
+    border-radius: 0;
     padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: 2px solid #333;
+    box-shadow: none;
+    border: none;
   }
   
   .social-title {
