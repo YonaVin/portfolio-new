@@ -1605,8 +1605,7 @@
   /* Navigation - мобильное меню */
   .navbar {
     padding: 15px 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: transparent;
   }
   
   .nav-container {
@@ -1621,28 +1620,25 @@
 
   /* Mobile Menu Button Styles */
   .mobile-menu-btn {
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid #333;
+    background: none;
+    border: none;
     cursor: pointer;
-    padding: 8px;
-    border-radius: 8px;
+    padding: 10px;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1001;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   .mobile-menu-btn:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 
   .menu-icon {
-    width: 24px;
-    height: 24px;
-    filter: invert(0.3);
+    width: 32px;
+    height: 32px;
+    filter: invert(0.2);
     display: block;
   }
 
