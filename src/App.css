@@ -1614,28 +1614,36 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    position: relative;
   }
   
 
 
   /* Mobile Menu Button Styles */
   .mobile-menu-btn {
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #333;
     cursor: pointer;
     padding: 8px;
     border-radius: 8px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   .mobile-menu-btn:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+    transform: scale(1.05);
   }
 
   .menu-icon {
     width: 24px;
     height: 24px;
-    filter: invert(1);
+    filter: invert(0.3);
+    display: block;
   }
 
   /* Mobile Menu Overlay */
@@ -1655,13 +1663,13 @@
 
   .mobile-menu {
     background: white;
-    border-radius: 20px;
-    padding: 30px;
-    max-width: 400px;
-    width: 100%;
-    max-height: 80vh;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 300px;
+    width: 90%;
+    max-height: 70vh;
     overflow-y: auto;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     animation: slideIn 0.3s ease-out;
   }
 
@@ -1680,14 +1688,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 2px solid #f0f0f0;
   }
 
   .mobile-menu-header h3 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #333;
     font-weight: 600;
   }
@@ -1716,19 +1724,19 @@
   .mobile-menu-links {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
   }
 
   .mobile-nav-link {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px 20px;
+    gap: 12px;
+    padding: 12px 15px;
     text-decoration: none;
     color: #333;
-    border-radius: 15px;
+    border-radius: 10px;
     transition: all 0.3s ease;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     border: 2px solid transparent;
   }
@@ -1736,12 +1744,12 @@
   .mobile-nav-link:hover {
     background-color: #f8f9fa;
     border-color: #e9ecef;
-    transform: translateX(5px);
+    transform: translateX(3px);
   }
 
   .mobile-nav-icon {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     filter: invert(0.3);
   }
 
