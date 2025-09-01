@@ -145,7 +145,6 @@ function App() {
       role: "Designer & Frontend Developer",
       technologies: ["React", "CSS3", "Framer Motion", "Creative Design"],
       images: ["https://via.placeholder.com/600x400/96ceb4/ffffff?text=Portfolio+Website", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=Portfolio+Website+2"],
-      icon: "📓",
       category: "design",
       liveLink: "https://example.com/portfolio",
     },
@@ -156,74 +155,67 @@ function App() {
       role: "UI/UX Designer & Frontend Developer",
       technologies: ["React", "TypeScript", "Material-UI", "Chart.js"],
       images: ["https://via.placeholder.com/600x400/4ecdc4/ffffff?text=OMS+Project", "https://via.placeholder.com/600x400/ff6b6b/ffffff?text=OMS+Project+2"],
-      icon: "📊",
       category: "design",
       liveLink: "https://example.com/oms",
     },
     {
       title: "Seven Luck Casino",
       shortDescription: "Responsive casino platform.",
-      description: "SevenLuck Casino, operated by Grand Korean Leisure (a subsidiary of the Korean Tourism Organization), is one of Korea’s leading casinos for foreigners. The company approached us for a complete design rebrand and the development of a new set of digital products.",
+      description: "SevenLuck Casino, operated by Grand Korean Leisure, approached us for a full rebrand and the creation of new digital products.",
       role: "UI/UX Designer & Frontend Developer",
       technologies: ["Vue.js", "CSS3", "Vuex", "Vue Router", "Vuex"],
       images: ["https://via.placeholder.com/600x400/45b7d1/ffffff?text=Seven+Luck+Casino", "https://via.placeholder.com/600x400/96ceb4/ffffff?text=Seven+Luck+Casino+2"],
-      icon: "🎰",
       category: "design",
       liveLink: "https://example.com/sevenluck",
     },
     {
       title: "PriceGolf Market",
       shortDescription: "Golf equipment marketplace",
-      description: "E-commerce platform specializing in golf equipment and accessories. Features product catalog, price comparison tools, user reviews, and secure checkout system with golf-specific categories.",
+      description: "E-commerce platform for golf equipment with catalog, price comparison, reviews, and secure checkout.",
       role: "UI/UX Designer & Frontend Developer",
       technologies: ["React", "Node.js", "MongoDB", "Stripe", "E-commerce"],
       images: ["https://via.placeholder.com/600x400/ff6b6b/ffffff?text=PriceGolf+Market", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=PriceGolf+Market+2"],
-      icon: "⛳",
       category: "design",
       liveLink: "https://example.com/pricegolf",
     },
     {
       title: "DataMon",
       shortDescription: "Data monitoring platform",
-      description: "Advanced data monitoring and analytics platform with real-time dashboards, alert systems, and comprehensive reporting tools. Built for enterprise-level data management and visualization.",
+      description: "Enterprise data management platform with real-time dashboards, alerts, and advanced reporting tools.",
       role: "Full Stack Developer",
       technologies: ["React", "Node.js", "Python", "PostgreSQL", "D3.js"],
       images: ["https://via.placeholder.com/600x400/4ecdc4/ffffff?text=DataMon", "https://via.placeholder.com/600x400/ff6b6b/ffffff?text=DataMon+2"],
-      icon: "📈",
       category: "code",
       liveLink: "https://example.com/datamon",
     },
     {
       title: "Studio 21",
       shortDescription: "Creative studio management",
-      description: "Comprehensive studio management system for creative agencies. Features project tracking, client management, resource allocation, and integrated billing system with automated workflows.",
+      description: "Studio management system with project tracking, client management, resource planning, and automated billing.",
       role: "Backend Developer & System Architect",
       technologies: ["Node.js", "Express", "MongoDB", "Socket.io", "AWS"],
       images: ["https://via.placeholder.com/600x400/45b7d1/ffffff?text=Studio+21", "https://via.placeholder.com/600x400/96ceb4/ffffff?text=Studio+21+2"],
-      icon: "🎬",
       category: "code",
       liveLink: "https://example.com/studio21",
     },
     {
       title: "Tech In",
       shortDescription: "Technology innovation hub",
-      description: "Innovation platform connecting tech startups with investors and mentors. Features startup profiles, pitch decks, networking tools, and investment tracking with advanced matching algorithms.",
+      description: "Innovation platform linking startups with investors and mentors through profiles, pitch decks, networking, and smart matching.",
       role: "Full Stack Developer",
       technologies: ["React", "TypeScript", "GraphQL", "Redis", "Docker"],
       images: ["https://via.placeholder.com/600x400/ff6b6b/ffffff?text=Tech+In", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=Tech+In+2"],
-      icon: "🚀",
       category: "code",
       liveLink: "https://example.com/techin",
     },
     {
       title: "Art Collection",
       shortDescription: "Illustrations",
-      description: "A collection of digital artwork featuring fantasy characters and whimsical illustrations. Includes detailed character designs, environmental art, and concept pieces showcasing creative storytelling through visual art.",
+      description: "Digital art collection featuring fantasy characters, imaginative environments, and detailed concept illustrations.",
       role: "Illustrator",
       technologies: ["Procreate", "Photoshop"],
       images: ["/art1.png", "/art2.png", "/art3.png"],
-      icon: "🎨",
-      category: "art",
+      category: "code",
       liveLink: "https://example.com/digitalart",
     },
   ];
@@ -360,7 +352,7 @@ function App() {
                   <p>Hi! I'm Alyona — a designer and aspiring frontend developer. I've been working with web design and interfaces for over 3 years, and recently I've been diving deeper into development to bring ideas to life not just in mockups, but in code.</p>
                   <p>I love finding the balance between aesthetics and usability: creating projects that look and work equally well. I'm currently actively developing my skills in JavaScript, HTML, CSS and React, learning through practice and building a portfolio of real projects.</p>
                   <p>My goal is to work on products where user experience and attention to detail matter. I'm open to new opportunities, especially international ones, and I'm always ready for new challenges.</p>
-                  <p>Besides work, I love motorcycles 🏍 and sports.</p>
+                  <p>Besides work, I love motorcycles <img src="/bike.svg" alt="Bike" style={{ width: '20px', height: '20px' }} /> and sports.</p>
                 </div>
               </Page>
               
@@ -379,76 +371,86 @@ function App() {
               <Page number="4">
                 <h3 className="page-title">My Questionnaire</h3>
                 <div className="questionnaire-item">
-                  <span className="question-marker">🎨</span>
+                  <span className="question-marker">
+                    <img src="/color.svg" alt="Color" style={{ width: '20px', height: '20px' }} />
+                  </span>
                   <span className="question-text">Favorite color:</span>
                   <span className="answer-text">Blue (like the sky on a clear day!)</span>
                 </div>
                 
                 <div className="questionnaire-item">
-                  <span className="question-marker">📚</span>
+                  <span className="question-marker">
+                    <img src="/book.svg" alt="Subject" style={{ width: '20px', height: '20px' }} />
+                  </span>
                   <span className="question-text">Favorite subject:</span>
-                  <span className="answer-text">Computer Science (now it's my life 😅)</span>
+                  <span className="answer-text">Computer Science (now it's my life <img src="/smile.svg" alt="Smile" style={{ width: '20px', height: '20px' }} />)</span>
                 </div>
                 
                 <div className="questionnaire-item">
-                  <span className="question-marker">🎵</span>
+                  <span className="question-marker">
+                    <img src="/music.svg" alt="Song" style={{ width: '20px', height: '20px' }} />
+                  </span>
                   <span className="question-text">Favorite song:</span>
-                  <span className="answer-text">Bohemian Rhapsody - Queen</span>
+                  <span className="answer-text">Bon Jovi - It's My Life</span>
                 </div>
                 
                 <div className="questionnaire-item">
-                  <span className="question-marker">🎮</span>
+                  <span className="question-marker">
+                    <img src="/hobby.svg" alt="Hobbies" style={{ width: '20px', height: '20px' }} />
+                  </span>
                   <span className="question-text">Hobbies:</span>
-                  <span className="answer-text">Programming, drawing, reading sci-fi</span>
+                  <span className="answer-text">Programming, drawing, riding a motorcycle</span>
                 </div>
                 
                 <div className="questionnaire-item">
-                  <span className="question-marker">💪</span>
+                  <span className="question-marker">
+                    <img src="/motto.svg" alt="Motto" style={{ width: '20px', height: '20px' }} />
+                  </span>
                   <span className="question-text">My motto:</span>
                   <span className="answer-text">"Code should be beautiful and work!"</span>
                 </div>
                 
                 <div className="questionnaire-item">
-                  <span className="question-marker">⭐</span>
+                  <span className="question-marker">
+                    <img src="/dream.svg" alt="Dream" style={{ width: '20px', height: '20px' }} />
+                  </span>
                   <span className="question-text">Dream:</span>
                   <span className="answer-text">Create an app that millions will use</span>
                 </div>
                 
-                <div className="questionnaire-item">
-                  <span className="question-marker">🖌️</span>
-                  <span className="question-text">What I love to draw:</span>
-                  <span className="answer-text">UI/UX designs and abstract patterns</span>
-                </div>
                 
                 <div className="questionnaire-item">
-                  <span className="question-marker">🍕</span>
+                  <span className="question-marker">
+                    <img src="/food.svg" alt="Food" style={{ width: '20px', height: '20px' }} />
+                  </span>
                   <span className="question-text">Favorite food:</span>
-                  <span className="answer-text">Pizza (especially with pepperoni!)</span>
+                  <span className="answer-text">Carrots (especially with butter!)</span>
                 </div>
                 
                 <div className="questionnaire-item">
-                  <span className="question-marker">🌍</span>
+                  <span className="question-marker">
+                    <img src="/travel.svg" alt="Travel" style={{ width: '20px', height: '20px' }} />
+                  </span>
                   <span className="question-text">Want to visit:</span>
-                  <span className="answer-text">Japan (technology + culture = dream!)</span>
+                  <span className="answer-text">Iceland (inspire creativity in nature)</span>
                 </div>
                 
                 <div className="questionnaire-item">
-                  <span className="question-marker">🚀</span>
+                  <span className="question-marker">
+                    <img src="/tech.svg" alt="Tech" style={{ width: '20px', height: '20px' }} />
+                  </span>
                   <span className="question-text">Favorite technology:</span>
                   <span className="answer-text">React (creating magic on the web!)</span>
                 </div>
                 
                 <div className="questionnaire-item">
-                  <span className="question-marker">🎯</span>
+                  <span className="question-marker">
+                    <img src="/goal.svg" alt="Goal" style={{ width: '20px', height: '20px' }} />
+                  </span>
                   <span className="question-text">Goal for the year:</span>
                   <span className="answer-text">Learn AI and create a smart app</span>
                 </div>
                 
-                <div className="questionnaire-item">
-                  <span className="question-marker">🌟</span>
-                  <span className="question-text">Favorite time of day:</span>
-                  <span className="answer-text">Night (when everyone sleeps and I code!)</span>
-                </div>
               </Page>
             </HTMLFlipBook>
           </div>
@@ -586,12 +588,6 @@ function App() {
                 >
                   Page 2
                 </div>
-                <div
-                  className={`tab ${selectedTab === "art" ? "active" : ""}`}
-                  onClick={() => setSelectedTab("art")}
-                >
-                  Page 3
-                </div>
               </div>
 
               {/* Список проектов */}
@@ -725,41 +721,8 @@ function App() {
         >
           <h2 className="section-title">Certificates</h2>
           <div className="certificates-container">
-            <div className="certificate-item">
-              <div className="certificate-icon">🎨</div>
-              <div className="certificate-content">
-                <h3 className="certificate-title">Google UX Design</h3>
-                <p className="certificate-description">Professional Certificate</p>
-                <p className="certificate-organization">Google & Coursera • 2023</p>
-              </div>
-            </div>
-            
-            <div className="certificate-item">
-              <div className="certificate-icon">💻</div>
-              <div className="certificate-content">
-                <h3 className="certificate-title">React Development</h3>
-                <p className="certificate-description">Frontend Development</p>
-                <p className="certificate-organization">Meta • 2023</p>
-              </div>
-            </div>
-            
-            <div className="certificate-item">
-              <div className="certificate-icon">🎯</div>
-              <div className="certificate-content">
-                <h3 className="certificate-title">UI/UX Design Fundamentals</h3>
-                <p className="certificate-description">Design Principles & Tools</p>
-                <p className="certificate-organization">Udemy • 2023</p>
-              </div>
-            </div>
-            
-            <div className="certificate-item">
-              <div className="certificate-icon">🚀</div>
-              <div className="certificate-content">
-                <h3 className="certificate-title">JavaScript Advanced</h3>
-                <p className="certificate-description">Modern JavaScript ES6+</p>
-                <p className="certificate-organization">freeCodeCamp • 2023</p>
-              </div>
-            </div>
+            <img src="/cert1.svg" alt="Certificate 1" className="certificate-svg" />
+            <img src="/cert2.svg" alt="Certificate 2" className="certificate-svg" />
           </div>
         </motion.section>
 
