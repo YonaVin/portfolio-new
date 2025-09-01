@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import HTMLFlipBook from 'react-pageflip';
 import './App.css';
 
+// Utility function for image paths
+const getImageUrl = (path) => `${process.env.PUBLIC_URL}${path}`;
+
 
 
 // Page components for the book
@@ -168,7 +171,7 @@ function App() {
       description: "Comprehensive order management system with intuitive interface design, dashboard analytics, and streamlined workflow for efficient business operations.",
       role: "UI/UX Designer & Frontend Developer",
       technologies: ["React", "TypeScript", "Material-UI", "Chart.js"],
-      images: ["/oms.png", "/oms1.png", "/oms2.png", "/oms4.png"],
+      images: [getImageUrl("/oms.png"), getImageUrl("/oms1.png"), getImageUrl("/oms2.png"), getImageUrl("/oms4.png")],
       category: "design",
       liveLink: "_",
     },
@@ -178,7 +181,7 @@ function App() {
       description: "SevenLuck Casino, operated by Grand Korean Leisure, approached us for a full rebrand and the creation of new digital products.",
       role: "UI/UX Designer & Frontend Developer",
       technologies: ["Vue.js", "CSS3", "Vuex", "Vue Router", "Vuex"],
-      images: ["/sevenluck.png", "/service.png", "/mypass.png"],
+      images: [getImageUrl("/sevenluck.png"), getImageUrl("/service.png"), getImageUrl("/mypass.png")],
       category: "design",
       liveLink: "_",
     },
@@ -188,7 +191,7 @@ function App() {
       description: "E-commerce platform for golf equipment with catalog, price comparison, reviews, and secure checkout.",
       role: "UI/UX Designer & Frontend Developer",
       technologies: ["UI/UX Design"],
-      images: ["/pricegolf.png", "/1price.png"],
+      images: [getImageUrl("/pricegolf.png"), getImageUrl("/1price.png")],
       category: "design",
       liveLink: "https://apps.apple.com/kr/app/%ED%94%84%EB%9D%BC%EC%9D%B4%EC%8A%A4%EA%B3%A8%ED%94%84-%EC%A4%91%EA%B3%A0-%EC%8B%A0%ED%92%88-%EA%B3%A8%ED%94%84%EC%B1%84-%EC%98%A4%ED%94%88%EB%A7%88%EC%BC%93/id6529527881",
     },
@@ -198,7 +201,7 @@ function App() {
       description: "Enterprise data management platform with real-time dashboards, alerts, and advanced reporting tools.",
       role: "Full Stack Developer",
       technologies: ["UI/UX Design"],
-      images: ["/datamon.png", "/data1.png", "/data2.png"],
+      images: [getImageUrl("/datamon.png"), getImageUrl("/data1.png"), getImageUrl("/data2.png")],
       category: "code",
       liveLink: "https://www.driven.co.kr/page/sub02_5",
     },
@@ -208,7 +211,7 @@ function App() {
       description: "Studio management system with project tracking, client management, resource planning, and automated billing.",
       role: "Backend Developer & System Architect",
         technologies: ["UI/UX Design"],
-        images: ["/studio21.png", "/1.png", "/2.png"],
+        images: [getImageUrl("/studio21.png"), getImageUrl("/1.png"), getImageUrl("/2.png")],
       category: "code",
       liveLink: "https://apps.apple.com/kr/app/studio-21/id1352380483?l=en-GB",
     },
@@ -218,7 +221,7 @@ function App() {
       description: "Innovation platform linking startups with investors and mentors through profiles, pitch decks, networking, and smart matching.",
       role: "Full Stack Developer",
       technologies: ["UI/UX Design"],
-      images: ["/teachin.png", "/tech1.png"],
+      images: [getImageUrl("/teachin.png"), getImageUrl("/tech1.png")],
       category: "code",
       liveLink: "https://apps.apple.com/kr/app/teach-in/id1573203601",
     },
@@ -228,7 +231,7 @@ function App() {
       description: "Digital art collection featuring fantasy characters, imaginative environments, and detailed concept illustrations.",
       role: "Illustrator",
       technologies: ["Procreate", "Photoshop"],
-      images: ["/art1.png", "/art2.png", "/art3.png"],
+      images: [getImageUrl("/art1.png"), getImageUrl("/art2.png"), getImageUrl("/art3.png")],
       category: "code",
       liveLink: "_",  
     },
@@ -253,39 +256,39 @@ function App() {
         <div className="nav-container">
           <div className="nav-links">
             <a href="#home" className="nav-link">
-              <img src="/home.svg" alt="" className="nav-icon" />
+              <img src={`${process.env.PUBLIC_URL}/home.svg`} alt="" className="nav-icon" />
               Home
-              <img src="/line.svg" alt="" className="nav-line" />
+              <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
             </a>
             <a href="#about" className="nav-link">
-              <img src="/about.svg" alt="" className="nav-icon" />
+              <img src={getImageUrl("/about.svg")} alt="" className="nav-icon" />
               About
-              <img src="/line.svg" alt="" className="nav-line" />
+              <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
             </a>
             <a href="#skills" className="nav-link">
-              <img src="/skillsicon.svg" alt="" className="nav-icon" />
+              <img src={getImageUrl("/skillsicon.svg")} alt="" className="nav-icon" />
               Skills
-              <img src="/line.svg" alt="" className="nav-line" />
+              <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
             </a>
                             <a href="#projects" className="nav-link">
-                  <img src="/projectsicon.svg" alt="" className="nav-icon" />
+                  <img src={getImageUrl("/projectsicon.svg")} alt="" className="nav-icon" />
                   Projects
-                  <img src="/line.svg" alt="" className="nav-line" />
+                  <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
                 </a>
                 <a href="#certificates" className="nav-link">
-                  <img src="/awards.svg" alt="" className="nav-icon" />
+                  <img src={getImageUrl("/awards.svg")} alt="" className="nav-icon" />
                   Certificates
-                  <img src="/line.svg" alt="" className="nav-line" />
+                  <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
                 </a>
                 <a href="#interests" className="nav-link">
-                  <img src="/fun.svg" alt="" className="nav-icon" />
+                  <img src={getImageUrl("/fun.svg")} alt="" className="nav-icon" />
                   Interests
-                  <img src="/line.svg" alt="" className="nav-line" />
+                  <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
                 </a>
             <a href="#contact" className="nav-link">
-              <img src="/email1.svg" alt="" className="nav-icon" />
+              <img src={getImageUrl("/email1.svg")} alt="" className="nav-icon" />
               Contact
-              <img src="/line.svg" alt="" className="nav-line" />
+              <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
             </a>
           </div>
         </div>
@@ -363,7 +366,7 @@ function App() {
               <Page number="1">
                 <h3 className="page-title">About Me</h3>
                 <div className="about-content">
-                  <p>Hi! I'm Alyona — a designer and aspiring frontend developer. I've been working with web design and interfaces for over 3 years, and recently I've been diving deeper into development to bring ideas to life not just in mockups, but in code <img src="/code.svg" alt="Code" style={{ width: '30px', height: '30px' }} /></p>
+                  <p>Hi! I'm Alyona — a designer and aspiring frontend developer. I've been working with web design and interfaces for over 3 years, and recently I've been diving deeper into development to bring ideas to life not just in mockups, but in code <img src={getImageUrl("/code.svg")} alt="Code" style={{ width: '30px', height: '30px' }} /></p>
                   <p>I love finding the balance between aesthetics and usability: creating projects that look and work equally well. I'm currently actively developing my skills in JavaScript, HTML, CSS and React, learning through practice and building a portfolio of real projects.</p>
                 </div>
               </Page>
@@ -371,7 +374,7 @@ function App() {
               <Page number="2">
               <div className="about-content">
               <p>My goal is to work on products where user experience and attention to detail matter. I'm open to new opportunities, especially international ones, and I'm always ready for new challenges.</p>
-              <p>Besides work, I love motorcycles <img src="/bike.svg" alt="Bike" style={{ width: '30px', height: '30px' }} /> and sports <img src="/sport.svg" alt="Sport" style={{ width: '30px', height: '30px' }} /></p>
+              <p>Besides work, I love motorcycles <img src={getImageUrl("/bike.svg")} alt="Bike" style={{ width: '30px', height: '30px' }} /> and sports <img src={getImageUrl("/sport.svg")} alt="Sport" style={{ width: '30px', height: '30px' }} /></p>
               </div>
                 <div className="image-page" style={{ alignItems: 'flex-end', paddingBottom: '20px' }}>
                   <img src="https://via.placeholder.com/400x300/4ecdc4/ffffff?text=Image+1" alt="Placeholder 1" style={{ width: '90%', height: '100%', objectFit: 'cover' }} />
@@ -388,7 +391,7 @@ function App() {
                 <h3 className="page-title">My Questionnaire</h3>
                 <div className="questionnaire-item">
                   <span className="question-marker">
-                    <img src="/color.svg" alt="Color" style={{ width: '20px', height: '20px' }} />
+                    <img src={getImageUrl("/color.svg")} alt="Color" style={{ width: '20px', height: '20px' }} />
                   </span>
                   <span className="question-text">Favorite color:</span>
                   <span className="answer-text">Blue (like the sky on a clear day!)</span>
@@ -396,15 +399,15 @@ function App() {
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">
-                    <img src="/book.svg" alt="Subject" style={{ width: '20px', height: '20px' }} />
+                    <img src={getImageUrl("/book.svg")} alt="Subject" style={{ width: '20px', height: '20px' }} />
                   </span>
                   <span className="question-text">Favorite subject:</span>
-                  <span className="answer-text">Computer Science (now it's my life <img src="/smile.svg" alt="Smile" style={{ width: '20px', height: '20px' }} />)</span>
+                  <span className="answer-text">Computer Science (now it's my life <img src={getImageUrl("/smile.svg")} alt="Smile" style={{ width: '20px', height: '20px' }} />)</span>
                 </div>
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">
-                    <img src="/music.svg" alt="Song" style={{ width: '20px', height: '20px' }} />
+                    <img src={getImageUrl("/music.svg")} alt="Song" style={{ width: '20px', height: '20px' }} />
                   </span>
                   <span className="question-text">Favorite song:</span>
                   <span className="answer-text">Bon Jovi - It's My Life</span>
@@ -412,7 +415,7 @@ function App() {
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">
-                    <img src="/hobby.svg" alt="Hobbies" style={{ width: '20px', height: '20px' }} />
+                    <img src={getImageUrl("/hobby.svg")} alt="Hobbies" style={{ width: '20px', height: '20px' }} />
                   </span>
                   <span className="question-text">Hobbies:</span>
                   <span className="answer-text">Programming, drawing, riding a motorcycle</span>
@@ -420,7 +423,7 @@ function App() {
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">
-                    <img src="/motto.svg" alt="Motto" style={{ width: '20px', height: '20px' }} />
+                    <img src={getImageUrl("/motto.svg")} alt="Motto" style={{ width: '20px', height: '20px' }} />
                   </span>
                   <span className="question-text">My motto:</span>
                   <span className="answer-text">"Code should be beautiful and work!"</span>
@@ -428,7 +431,7 @@ function App() {
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">
-                    <img src="/dream.svg" alt="Dream" style={{ width: '20px', height: '20px' }} />
+                    <img src={getImageUrl("/dream.svg")} alt="Dream" style={{ width: '20px', height: '20px' }} />
                   </span>
                   <span className="question-text">Dream:</span>
                   <span className="answer-text">Create an app that millions will use</span>
@@ -437,7 +440,7 @@ function App() {
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">
-                    <img src="/food.svg" alt="Food" style={{ width: '20px', height: '20px' }} />
+                    <img src={getImageUrl("/food.svg")} alt="Food" style={{ width: '20px', height: '20px' }} />
                   </span>
                   <span className="question-text">Favorite food:</span>
                   <span className="answer-text">Carrots (especially with butter!)</span>
@@ -445,7 +448,7 @@ function App() {
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">
-                    <img src="/travel.svg" alt="Travel" style={{ width: '20px', height: '20px' }} />
+                    <img src={getImageUrl("/travel.svg")} alt="Travel" style={{ width: '20px', height: '20px' }} />
                   </span>
                   <span className="question-text">Want to visit:</span>
                   <span className="answer-text">Iceland (inspire creativity in nature)</span>
@@ -453,7 +456,7 @@ function App() {
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">
-                    <img src="/tech.svg" alt="Tech" style={{ width: '20px', height: '20px' }} />
+                    <img src={getImageUrl("/tech.svg")} alt="Tech" style={{ width: '20px', height: '20px' }} />
                   </span>
                   <span className="question-text">Favorite technology:</span>
                   <span className="answer-text">React (creating magic on the web!)</span>
@@ -461,7 +464,7 @@ function App() {
                 
                 <div className="questionnaire-item">
                   <span className="question-marker">
-                    <img src="/goal.svg" alt="Goal" style={{ width: '20px', height: '20px' }} />
+                    <img src={getImageUrl("/goal.svg")} alt="Goal" style={{ width: '20px', height: '20px' }} />
                   </span>
                   <span className="question-text">Goal for the year:</span>
                   <span className="answer-text">Learn AI and create a smart app</span>
@@ -484,27 +487,27 @@ function App() {
           <div className="skills-container">
             {/* Design Skills */}
             <div className="skill-category-container skill-left">
-              <img src="/skills.svg" alt="" className="skills-svg" />
+              <img src={getImageUrl("/skills.svg")} alt="" className="skills-svg" />
               <div className="skills-content">
                 <h3 className="skill-category-title">
-                  <img src="/design.svg" alt="Design" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
+                  <img src={getImageUrl("/design.svg")} alt="Design" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
                   Design
                 </h3>
                 <div className="skill-cards">
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '10px' }}>
-                    <img src="/fugma.svg" alt="Figma" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                    <img src={getImageUrl("/fugma.svg")} alt="Figma" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                     <span className="skill-name">Figma</span>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/ai.svg" alt="Illustrator" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/ai.svg")} alt="Illustrator" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">Illustrator</span>
                     </div>
                     <div className="skill-note">Vector Graphics</div>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/psd.svg" alt="Photoshop" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/psd.svg")} alt="Photoshop" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">Photoshop</span>
                     </div>
                     <div className="skill-note">Image Editing</div>
@@ -515,51 +518,51 @@ function App() {
 
             {/* Frontend Skills */}
             <div className="skill-category-container">
-              <img src="/skills2.svg" alt="" className="skills-svg" />
+              <img src={getImageUrl("/skills2.svg")} alt="" className="skills-svg" />
               <div className="skills-content">
                 <h3 className="skill-category-title">
-                  <img src="/front.svg" alt="Frontend" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
+                  <img src={getImageUrl("/front.svg")} alt="Frontend" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
                   Frontend
                 </h3>
                 <div className="skill-cards">
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/react.svg" alt="React" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/react.svg")} alt="React" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">React</span>
                     </div>
                     <div className="skill-note">Frontend Framework</div>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/js.svg" alt="JavaScript" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/js.svg")} alt="JavaScript" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">JavaScript</span>
                     </div>
                     <div className="skill-note">Programming</div>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/ts.svg" alt="TypeScript" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/ts.svg")} alt="TypeScript" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">TypeScript</span>
                     </div>
                     <div className="skill-note">Type Safety</div>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/css.svg" alt="CSS" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/css.svg")} alt="CSS" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">CSS/SASS</span>
                     </div>
                     <div className="skill-note">Styling</div>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/html.svg" alt="HTML" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/html.svg")} alt="HTML" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">HTML5</span>
                     </div>
                     <div className="skill-note">Markup</div>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/next.svg" alt="Next.js" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/next.svg")} alt="Next.js" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">Next.js</span>
                     </div>
                     <div className="skill-note">Full Stack</div>
@@ -570,44 +573,44 @@ function App() {
 
             {/* Tools Skills */}
             <div className="skill-category-container skill-right">
-              <img src="/skills3.svg" alt="" className="skills-svg" />
+              <img src={getImageUrl("/skills3.svg")} alt="" className="skills-svg" />
               <div className="skills-content">
                 <h3 className="skill-category-title">
-                  <img src="/tool.svg" alt="Tools" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
+                  <img src={getImageUrl("/tool.svg")} alt="Tools" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
                   Tools
                 </h3>
                 <div className="skill-cards">
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/git.svg" alt="Git" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/git.svg")} alt="Git" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">Git</span>
                     </div>
                     <div className="skill-note">Version Control</div>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/node.svg" alt="Node.js" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/node.svg")} alt="Node.js" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">Node.js</span>
                     </div>
                     <div className="skill-note">Backend</div>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/vscode.svg" alt="VS Code" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/vscode.svg")} alt="VS Code" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">VS Code</span>
                     </div>
                     <div className="skill-note">Code Editor</div>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/fugma.svg" alt="Figma" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/fugma.svg")} alt="Figma" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">Figma</span>
                     </div>
                     <div className="skill-note">Design Tool</div>
                   </div>
                   <div className="skill-card">
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
-                      <img src="/api.svg" alt="Postman" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <img src={getImageUrl("/api.svg")} alt="Postman" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                       <span className="skill-name">Postman</span>
                     </div>
                     <div className="skill-note">API Testing</div>
@@ -659,7 +662,7 @@ function App() {
                       setSelectedImage(0);
                     }}
                   >
-                    <img src="/project.svg" alt="" className="project-svg" />
+                    <img src={getImageUrl("/project.svg")} alt="" className="project-svg" />
                     <div className="project-content">
                       <div className="note-icon">{project.icon}</div>
                       <h3 className="note-title">{project.title}</h3>
@@ -824,8 +827,8 @@ function App() {
         >
           <h2 className="section-title">Certificates</h2>
           <div className="certificates-container">
-            <img src="/cert1.svg" alt="Certificate 1" className="certificate-svg" />
-            <img src="/cert2.svg" alt="Certificate 2" className="certificate-svg" />
+            <img src={getImageUrl("/cert1.svg")} alt="Certificate 1" className="certificate-svg" />
+            <img src={getImageUrl("/cert2.svg")} alt="Certificate 2" className="certificate-svg" />
           </div>
         </motion.section>
 
@@ -856,7 +859,7 @@ function App() {
             {/* Contact Form - Left Side */}
             <div className="contact-left">
               <div className="contact-info">
-                <img src="/contact.svg" alt="" className="contact-svg" />
+                <img src={getImageUrl("/contact.svg")} alt="" className="contact-svg" />
                 <div className="contact-content">
                   <p className="contact-text">
                     I'm always open to new opportunities and collaborations. 
@@ -887,16 +890,16 @@ function App() {
               <h3 className="social-title">Social Media</h3>
               <div className="sns-links">
                 <a href="mailto:alenafil93@gmail.com" className="sns-icon-link">
-                  <img src="/icons/email.svg" alt="Email" className="sns-icon-img" />
+                  <img src={getImageUrl("/icons/email.svg")} alt="Email" className="sns-icon-img" />
                 </a>
                 <a href="https://www.linkedin.com/in/yonavin" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
-                  <img src="/icons/linkedin.svg" alt="LinkedIn" className="sns-icon-img" />
+                  <img src={getImageUrl("/icons/linkedin.svg")} alt="LinkedIn" className="sns-icon-img" />
                 </a>
                 <a href="https://github.com/YonaVin" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
-                  <img src="/icons/github.svg" alt="GitHub" className="sns-icon-img" />
+                  <img src={getImageUrl("/icons/github.svg")} alt="GitHub" className="sns-icon-img" />
                 </a>
                 <a href="https://77388.notion.site/Hello-I-m-Alyona-c708d71b4a8644258648229e226b0840?source=copy_link" target="_blank" rel="noopener noreferrer" className="sns-icon-link">
-                  <img src="/icons/notion.svg" alt="Notion" className="sns-icon-img" />
+                  <img src={getImageUrl("/icons/notion.svg")} alt="Notion" className="sns-icon-img" />
                 </a>
               </div>
             </div>
@@ -915,7 +918,7 @@ function App() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <img src="/up.svg" alt="Scroll to top" />
+          <img src={getImageUrl("/up.svg")} alt="Scroll to top" />
         </motion.button>
       )}
     </div>
