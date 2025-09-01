@@ -91,6 +91,7 @@ function App() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isImageEnlarged, setIsImageEnlarged] = useState(false);
 
   // Handle navbar visibility on scroll
   useEffect(() => {
@@ -136,6 +137,19 @@ function App() {
     });
   };
 
+  const toggleImageSize = () => {
+    setIsImageEnlarged(!isImageEnlarged);
+  };
+
+  const handleModalImageClick = () => {
+    const images = projectsData[selectedProject].images;
+    if (selectedImage < images.length - 1) {
+      setSelectedImage(selectedImage + 1);
+    } else {
+      setIsImageEnlarged(false);
+    }
+  };
+
 
   const projectsData = [
     {
@@ -146,7 +160,7 @@ function App() {
       technologies: ["React", "CSS3", "Framer Motion", "Creative Design"],
       images: ["https://via.placeholder.com/600x400/96ceb4/ffffff?text=Portfolio+Website", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=Portfolio+Website+2"],
       category: "design",
-      liveLink: "https://example.com/portfolio",
+      liveLink: "https://yonavin.github.io/portfolio/",
     },
     {
       title: "OMS Project",
@@ -154,9 +168,9 @@ function App() {
       description: "Comprehensive order management system with intuitive interface design, dashboard analytics, and streamlined workflow for efficient business operations.",
       role: "UI/UX Designer & Frontend Developer",
       technologies: ["React", "TypeScript", "Material-UI", "Chart.js"],
-      images: ["https://via.placeholder.com/600x400/4ecdc4/ffffff?text=OMS+Project", "https://via.placeholder.com/600x400/ff6b6b/ffffff?text=OMS+Project+2"],
+      images: ["/oms.png", "/oms1.png", "/oms2.png", "/oms4.png"],
       category: "design",
-      liveLink: "https://example.com/oms",
+      liveLink: "_",
     },
     {
       title: "Seven Luck Casino",
@@ -164,49 +178,49 @@ function App() {
       description: "SevenLuck Casino, operated by Grand Korean Leisure, approached us for a full rebrand and the creation of new digital products.",
       role: "UI/UX Designer & Frontend Developer",
       technologies: ["Vue.js", "CSS3", "Vuex", "Vue Router", "Vuex"],
-      images: ["https://via.placeholder.com/600x400/45b7d1/ffffff?text=Seven+Luck+Casino", "https://via.placeholder.com/600x400/96ceb4/ffffff?text=Seven+Luck+Casino+2"],
+      images: ["/sevenluck.png", "/service.png", "/mypass.png"],
       category: "design",
-      liveLink: "https://example.com/sevenluck",
+      liveLink: "_",
     },
     {
       title: "PriceGolf Market",
       shortDescription: "Golf equipment marketplace",
       description: "E-commerce platform for golf equipment with catalog, price comparison, reviews, and secure checkout.",
       role: "UI/UX Designer & Frontend Developer",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "E-commerce"],
-      images: ["https://via.placeholder.com/600x400/ff6b6b/ffffff?text=PriceGolf+Market", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=PriceGolf+Market+2"],
+      technologies: ["UI/UX Design"],
+      images: ["/pricegolf.png", "/1price.png"],
       category: "design",
-      liveLink: "https://example.com/pricegolf",
+      liveLink: "https://apps.apple.com/kr/app/%ED%94%84%EB%9D%BC%EC%9D%B4%EC%8A%A4%EA%B3%A8%ED%94%84-%EC%A4%91%EA%B3%A0-%EC%8B%A0%ED%92%88-%EA%B3%A8%ED%94%84%EC%B1%84-%EC%98%A4%ED%94%88%EB%A7%88%EC%BC%93/id6529527881",
     },
     {
       title: "DataMon",
       shortDescription: "Data monitoring platform",
       description: "Enterprise data management platform with real-time dashboards, alerts, and advanced reporting tools.",
       role: "Full Stack Developer",
-      technologies: ["React", "Node.js", "Python", "PostgreSQL", "D3.js"],
-      images: ["https://via.placeholder.com/600x400/4ecdc4/ffffff?text=DataMon", "https://via.placeholder.com/600x400/ff6b6b/ffffff?text=DataMon+2"],
+      technologies: ["UI/UX Design"],
+      images: ["/datamon.png", "/data1.png", "/data2.png"],
       category: "code",
-      liveLink: "https://example.com/datamon",
+      liveLink: "https://www.driven.co.kr/page/sub02_5",
     },
     {
       title: "Studio 21",
       shortDescription: "Creative studio management",
       description: "Studio management system with project tracking, client management, resource planning, and automated billing.",
       role: "Backend Developer & System Architect",
-      technologies: ["Node.js", "Express", "MongoDB", "Socket.io", "AWS"],
-      images: ["https://via.placeholder.com/600x400/45b7d1/ffffff?text=Studio+21", "https://via.placeholder.com/600x400/96ceb4/ffffff?text=Studio+21+2"],
+        technologies: ["UI/UX Design"],
+        images: ["/studio21.png", "/1.png", "/2.png"],
       category: "code",
-      liveLink: "https://example.com/studio21",
+      liveLink: "https://apps.apple.com/kr/app/studio-21/id1352380483?l=en-GB",
     },
     {
       title: "Tech In",
       shortDescription: "Technology innovation hub",
       description: "Innovation platform linking startups with investors and mentors through profiles, pitch decks, networking, and smart matching.",
       role: "Full Stack Developer",
-      technologies: ["React", "TypeScript", "GraphQL", "Redis", "Docker"],
-      images: ["https://via.placeholder.com/600x400/ff6b6b/ffffff?text=Tech+In", "https://via.placeholder.com/600x400/4ecdc4/ffffff?text=Tech+In+2"],
+      technologies: ["UI/UX Design"],
+      images: ["/teachin.png", "/tech1.png"],
       category: "code",
-      liveLink: "https://example.com/techin",
+      liveLink: "https://apps.apple.com/kr/app/teach-in/id1573203601",
     },
     {
       title: "Art Collection",
@@ -216,7 +230,7 @@ function App() {
       technologies: ["Procreate", "Photoshop"],
       images: ["/art1.png", "/art2.png", "/art3.png"],
       category: "code",
-      liveLink: "https://example.com/digitalart",
+      liveLink: "_",  
     },
   ];
 
@@ -349,16 +363,18 @@ function App() {
               <Page number="1">
                 <h3 className="page-title">About Me</h3>
                 <div className="about-content">
-                  <p>Hi! I'm Alyona — a designer and aspiring frontend developer. I've been working with web design and interfaces for over 3 years, and recently I've been diving deeper into development to bring ideas to life not just in mockups, but in code.</p>
+                  <p>Hi! I'm Alyona — a designer and aspiring frontend developer. I've been working with web design and interfaces for over 3 years, and recently I've been diving deeper into development to bring ideas to life not just in mockups, but in code <img src="/code.svg" alt="Code" style={{ width: '30px', height: '30px' }} /></p>
                   <p>I love finding the balance between aesthetics and usability: creating projects that look and work equally well. I'm currently actively developing my skills in JavaScript, HTML, CSS and React, learning through practice and building a portfolio of real projects.</p>
-                  <p>My goal is to work on products where user experience and attention to detail matter. I'm open to new opportunities, especially international ones, and I'm always ready for new challenges.</p>
-                  <p>Besides work, I love motorcycles <img src="/bike.svg" alt="Bike" style={{ width: '20px', height: '20px' }} /> and sports.</p>
                 </div>
               </Page>
               
               <Page number="2">
-                <div className="image-page">
-                  <img src="https://via.placeholder.com/400x500/4ecdc4/ffffff?text=Image+1" alt="Placeholder 1" />
+              <div className="about-content">
+              <p>My goal is to work on products where user experience and attention to detail matter. I'm open to new opportunities, especially international ones, and I'm always ready for new challenges.</p>
+              <p>Besides work, I love motorcycles <img src="/bike.svg" alt="Bike" style={{ width: '30px', height: '30px' }} /> and sports <img src="/sport.svg" alt="Sport" style={{ width: '30px', height: '30px' }} /></p>
+              </div>
+                <div className="image-page" style={{ alignItems: 'flex-end', paddingBottom: '20px' }}>
+                  <img src="https://via.placeholder.com/400x300/4ecdc4/ffffff?text=Image+1" alt="Placeholder 1" style={{ width: '90%', height: '100%', objectFit: 'cover' }} />
                 </div>
               </Page>
               
@@ -470,27 +486,28 @@ function App() {
             <div className="skill-category-container skill-left">
               <img src="/skills.svg" alt="" className="skills-svg" />
               <div className="skills-content">
-                <h3 className="skill-category-title">🎨 Design</h3>
+                <h3 className="skill-category-title">
+                  <img src="/design.svg" alt="Design" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
+                  Design
+                </h3>
                 <div className="skill-cards">
-                  <div className="skill-card">
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '10px' }}>
+                    <img src="/fugma.svg" alt="Figma" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
                     <span className="skill-name">Figma</span>
-                    <div className="skill-note">UI/UX Design</div>
                   </div>
                   <div className="skill-card">
-                    <span className="skill-name">Photoshop</span>
-                    <div className="skill-note">Image Editing</div>
-                  </div>
-                  <div className="skill-card">
-                    <span className="skill-name">Sketch</span>
-                    <div className="skill-note">Prototyping</div>
-                  </div>
-                  <div className="skill-card">
-                    <span className="skill-name">Adobe XD</span>
-                    <div className="skill-note">Wireframing</div>
-                  </div>
-                  <div className="skill-card">
-                    <span className="skill-name">Illustrator</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/ai.svg" alt="Illustrator" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">Illustrator</span>
+                    </div>
                     <div className="skill-note">Vector Graphics</div>
+                  </div>
+                  <div className="skill-card">
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/psd.svg" alt="Photoshop" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">Photoshop</span>
+                    </div>
+                    <div className="skill-note">Image Editing</div>
                   </div>
                 </div>
               </div>
@@ -500,30 +517,51 @@ function App() {
             <div className="skill-category-container">
               <img src="/skills2.svg" alt="" className="skills-svg" />
               <div className="skills-content">
-                <h3 className="skill-category-title">💻 Frontend</h3>
+                <h3 className="skill-category-title">
+                  <img src="/front.svg" alt="Frontend" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
+                  Frontend
+                </h3>
                 <div className="skill-cards">
                   <div className="skill-card">
-                    <span className="skill-name">React</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/react.svg" alt="React" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">React</span>
+                    </div>
                     <div className="skill-note">Frontend Framework</div>
                   </div>
                   <div className="skill-card">
-                    <span className="skill-name">JavaScript</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/js.svg" alt="JavaScript" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">JavaScript</span>
+                    </div>
                     <div className="skill-note">Programming</div>
                   </div>
                   <div className="skill-card">
-                    <span className="skill-name">TypeScript</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/ts.svg" alt="TypeScript" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">TypeScript</span>
+                    </div>
                     <div className="skill-note">Type Safety</div>
                   </div>
                   <div className="skill-card">
-                    <span className="skill-name">CSS/SASS</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/css.svg" alt="CSS" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">CSS/SASS</span>
+                    </div>
                     <div className="skill-note">Styling</div>
                   </div>
                   <div className="skill-card">
-                    <span className="skill-name">HTML5</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/html.svg" alt="HTML" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">HTML5</span>
+                    </div>
                     <div className="skill-note">Markup</div>
                   </div>
                   <div className="skill-card">
-                    <span className="skill-name">Next.js</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/next.svg" alt="Next.js" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">Next.js</span>
+                    </div>
                     <div className="skill-note">Full Stack</div>
                   </div>
                 </div>
@@ -534,26 +572,44 @@ function App() {
             <div className="skill-category-container skill-right">
               <img src="/skills3.svg" alt="" className="skills-svg" />
               <div className="skills-content">
-                <h3 className="skill-category-title">🛠️ Tools</h3>
+                <h3 className="skill-category-title">
+                  <img src="/tool.svg" alt="Tools" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
+                  Tools
+                </h3>
                 <div className="skill-cards">
                   <div className="skill-card">
-                    <span className="skill-name">Git</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/git.svg" alt="Git" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">Git</span>
+                    </div>
                     <div className="skill-note">Version Control</div>
                   </div>
                   <div className="skill-card">
-                    <span className="skill-name">Node.js</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/node.svg" alt="Node.js" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">Node.js</span>
+                    </div>
                     <div className="skill-note">Backend</div>
                   </div>
                   <div className="skill-card">
-                    <span className="skill-name">VS Code</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/vscode.svg" alt="VS Code" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">VS Code</span>
+                    </div>
                     <div className="skill-note">Code Editor</div>
                   </div>
                   <div className="skill-card">
-                    <span className="skill-name">Figma</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/fugma.svg" alt="Figma" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">Figma</span>
+                    </div>
                     <div className="skill-note">Design Tool</div>
                   </div>
                   <div className="skill-card">
-                    <span className="skill-name">Postman</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}>
+                      <img src="/api.svg" alt="Postman" style={{ width: '20px', height: '20px', marginBottom: '5px' }} />
+                      <span className="skill-name">Postman</span>
+                    </div>
                     <div className="skill-note">API Testing</div>
                   </div>
                 </div>
@@ -628,8 +684,53 @@ function App() {
                         projectsData[selectedProject].images[selectedImage]
                       }
                       alt={projectsData[selectedProject].title}
+                      onClick={toggleImageSize}
+                      style={{
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease'
+                      }}
                     />
                   </div>
+                  
+                  {/* Модальное окно для увеличенного изображения */}
+                  {isImageEnlarged && (
+                    <div 
+                      className="image-modal-overlay"
+                      onClick={handleModalImageClick}
+                      style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        zIndex: 1000,
+                        cursor: 'pointer',
+                        borderRadius: '8px',
+                        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+                        overflow: 'hidden'
+                      }}
+                    >
+                      <img
+                        src={projectsData[selectedProject].images[selectedImage]}
+                        alt={projectsData[selectedProject].title}
+                        style={{
+                          maxWidth: '90%',
+                          maxHeight: '90%',
+                          objectFit: 'contain',
+                          cursor: 'pointer',
+                          border: '3px solid #fff',
+                          borderRadius: '12px',
+                          boxShadow: '0 8px 25px rgba(0, 0, 0, 0.4)',
+                          backgroundColor: '#fff',
+                          padding: '10px'
+                        }}
+                        onClick={(e) => { e.stopPropagation(); handleModalImageClick(); }}
+                      />
+                    </div>
+                  )}
 
                   <div className="project-gallery">
                     <div className="gallery-container">
@@ -672,14 +773,16 @@ function App() {
                   </div>
 
                   <div className="project-actions">
-                    <a
-                      href={projectsData[selectedProject].liveLink}
-                      className="view-project-btn"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      View Project
-                    </a>
+                    {projectsData[selectedProject].liveLink && (
+                      <a
+                        href={projectsData[selectedProject].liveLink}
+                        className="view-project-btn"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        View Project
+                      </a>
+                    )}
                     <div className="project-navigation">
                       <button
                         className="previous-btn"
@@ -735,114 +838,8 @@ function App() {
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <h2 className="section-title">Interests</h2>
-                      <div className="interests-container">
-                          <div className="interest-category">
-                <h3 className="interest-category-title">🎮 Gaming</h3>
-                <div className="interest-items">
-                  <div className="interest-item">
-                    <span className="interest-icon">🎯</span>
-                    <span className="interest-text">Favorite game: Stardew Valley (relaxing farming sim)</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">🏆</span>
-                    <span className="interest-text">Completed 100% achievements in 3 games</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">🎲</span>
-                    <span className="interest-text">Love puzzle games and strategy RPGs</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="interest-category">
-                <h3 className="interest-category-title">🎨 Creative</h3>
-                <div className="interest-items">
-                  <div className="interest-item">
-                    <span className="interest-icon">🖌️</span>
-                    <span className="interest-text">Digital art enthusiast - draw daily</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">📸</span>
-                    <span className="interest-text">Photography lover (especially street photography)</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">🎵</span>
-                    <span className="interest-text">Learning to play ukulele (slowly but surely!)</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="interest-category">
-                <h3 className="interest-category-title">🌍 Travel & Culture</h3>
-                <div className="interest-items">
-                  <div className="interest-item">
-                    <span className="interest-icon">🗺️</span>
-                    <span className="interest-text">Visited 8 countries so far</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">🍜</span>
-                    <span className="interest-text">Foodie - love trying new cuisines</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">📚</span>
-                    <span className="interest-text">Learning Korean and Japanese</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="interest-category">
-                <h3 className="interest-category-title">💻 Tech & Learning</h3>
-                <div className="interest-items">
-                  <div className="interest-item">
-                    <span className="interest-icon">🤖</span>
-                    <span className="interest-text">Fascinated by AI and machine learning</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">📱</span>
-                    <span className="interest-text">Built 5 personal apps for fun</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">🔬</span>
-                    <span className="interest-text">Always learning new technologies</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="interest-category">
-                <h3 className="interest-category-title">🏃‍♀️ Lifestyle</h3>
-                <div className="interest-items">
-                  <div className="interest-item">
-                    <span className="interest-icon">☕</span>
-                    <span className="interest-text">Coffee addict (3 cups daily minimum!)</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">🌙</span>
-                    <span className="interest-text">Night owl - most productive after 10 PM</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">🐱</span>
-                    <span className="interest-text">Cat person (have 2 adorable cats)</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="interest-category">
-                <h3 className="interest-category-title">🎯 Goals & Dreams</h3>
-                <div className="interest-items">
-                  <div className="interest-item">
-                    <span className="interest-icon">🚀</span>
-                    <span className="interest-text">Want to work at a big tech company</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">🏠</span>
-                    <span className="interest-text">Dream of having a home office with a view</span>
-                  </div>
-                  <div className="interest-item">
-                    <span className="interest-icon">🌟</span>
-                    <span className="interest-text">Create an app that helps millions of people</span>
-                  </div>
-                </div>
-              </div>
+          <div className="interests-container">
+            <img src="https://via.placeholder.com/800x600/4ecdc4/ffffff?text=Interests+Image" alt="Interests" style={{ width: '100%', maxWidth: '800px', height: 'auto', display: 'block', margin: '0 auto' }} />
           </div>
         </motion.section>
 
