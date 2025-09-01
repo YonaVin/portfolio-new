@@ -95,6 +95,7 @@ function App() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Handle navbar visibility on scroll
   useEffect(() => {
@@ -151,6 +152,14 @@ function App() {
     } else {
       setIsImageEnlarged(false);
     }
+  };
+
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleMobileMenuClose = () => {
+    setIsMobileMenuOpen(false);
   };
 
 
@@ -254,43 +263,93 @@ function App() {
         transition={{ duration: 0.3 }}
       >
         <div className="nav-container">
+          {/* Desktop Navigation */}
           <div className="nav-links">
-            <a href="#home" className="nav-link">
+            <a href="#home" className="nav-link" onClick={handleMobileMenuClose}>
               <img src={`${process.env.PUBLIC_URL}/home.svg`} alt="" className="nav-icon" />
               Home
               <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
             </a>
-            <a href="#about" className="nav-link">
+            <a href="#about" className="nav-link" onClick={handleMobileMenuClose}>
               <img src={getImageUrl("/about.svg")} alt="" className="nav-icon" />
               About
               <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
             </a>
-            <a href="#skills" className="nav-link">
+            <a href="#skills" className="nav-link" onClick={handleMobileMenuClose}>
               <img src={getImageUrl("/skillsicon.svg")} alt="" className="nav-icon" />
               Skills
               <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
             </a>
-                            <a href="#projects" className="nav-link">
-                  <img src={getImageUrl("/projectsicon.svg")} alt="" className="nav-icon" />
-                  Projects
-                  <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
-                </a>
-                <a href="#certificates" className="nav-link">
-                  <img src={getImageUrl("/awards.svg")} alt="" className="nav-icon" />
-                  Certificates
-                  <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
-                </a>
-                <a href="#interests" className="nav-link">
-                  <img src={getImageUrl("/fun.svg")} alt="" className="nav-icon" />
-                  Interests
-                  <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
-                </a>
-            <a href="#contact" className="nav-link">
+            <a href="#projects" className="nav-link" onClick={handleMobileMenuClose}>
+              <img src={getImageUrl("/projectsicon.svg")} alt="" className="nav-icon" />
+              Projects
+              <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
+            </a>
+            <a href="#certificates" className="nav-link" onClick={handleMobileMenuClose}>
+              <img src={getImageUrl("/awards.svg")} alt="" className="nav-icon" />
+              Certificates
+              <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
+            </a>
+            <a href="#interests" className="nav-link" onClick={handleMobileMenuClose}>
+              <img src={getImageUrl("/fun.svg")} alt="" className="nav-icon" />
+              Interests
+              <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
+            </a>
+            <a href="#contact" className="nav-link" onClick={handleMobileMenuClose}>
               <img src={getImageUrl("/email1.svg")} alt="" className="nav-icon" />
               Contact
               <img src={getImageUrl("/line.svg")} alt="" className="nav-line" />
             </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button className="mobile-menu-btn" onClick={handleMobileMenuToggle}>
+            <img src={getImageUrl("/menu.svg")} alt="Menu" className="menu-icon" />
+          </button>
+
+          {/* Mobile Menu Overlay */}
+          {isMobileMenuOpen && (
+            <div className="mobile-menu-overlay" onClick={handleMobileMenuClose}>
+              <div className="mobile-menu" onClick={(e) => e.stopPropagation()}>
+                <div className="mobile-menu-header">
+                  <h3>Menu</h3>
+                  <button className="mobile-menu-close" onClick={handleMobileMenuClose}>
+                    ×
+                  </button>
+                </div>
+                <div className="mobile-menu-links">
+                  <a href="#home" className="mobile-nav-link" onClick={handleMobileMenuClose}>
+                    <img src={getImageUrl("/home.svg")} alt="" className="mobile-nav-icon" />
+                    Home
+                  </a>
+                  <a href="#about" className="mobile-nav-link" onClick={handleMobileMenuClose}>
+                    <img src={getImageUrl("/about.svg")} alt="" className="mobile-nav-icon" />
+                    About
+                  </a>
+                  <a href="#skills" className="mobile-nav-link" onClick={handleMobileMenuClose}>
+                    <img src={getImageUrl("/skillsicon.svg")} alt="" className="mobile-nav-icon" />
+                    Skills
+                  </a>
+                  <a href="#projects" className="mobile-nav-link" onClick={handleMobileMenuClose}>
+                    <img src={getImageUrl("/projectsicon.svg")} alt="" className="mobile-nav-icon" />
+                    Projects
+                  </a>
+                  <a href="#certificates" className="mobile-nav-link" onClick={handleMobileMenuClose}>
+                    <img src={getImageUrl("/awards.svg")} alt="" className="mobile-nav-icon" />
+                    Certificates
+                  </a>
+                  <a href="#interests" className="mobile-nav-link" onClick={handleMobileMenuClose}>
+                    <img src={getImageUrl("/fun.svg")} alt="" className="mobile-nav-icon" />
+                    Interests
+                  </a>
+                  <a href="#contact" className="mobile-nav-link" onClick={handleMobileMenuClose}>
+                    <img src={getImageUrl("/email1.svg")} alt="" className="mobile-nav-icon" />
+                    Contact
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </motion.nav>
 

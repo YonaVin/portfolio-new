@@ -1586,7 +1586,16 @@
 /* МОБИЛЬНАЯ ВЕРСИЯ (БЕЗ ИЗМЕНЕНИЯ DESKTOP) */
 /* ========================================= */
 
+/* Hide mobile menu button on desktop */
+.mobile-menu-btn {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  /* Show mobile menu button on mobile */
+  .mobile-menu-btn {
+    display: block;
+  }
   /* Navigation - мобильное меню */
   .navbar {
     padding: 15px 0;
@@ -1623,6 +1632,133 @@
   
   .nav-line {
     display: none;
+  }
+
+  /* Mobile Menu Button Styles */
+  .mobile-menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+
+  .mobile-menu-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .menu-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+  }
+
+  /* Mobile Menu Overlay */
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .mobile-menu {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .mobile-menu-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .mobile-menu-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-close:hover {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+
+  .mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 2px solid transparent;
+  }
+
+  .mobile-nav-link:hover {
+    background-color: #f8f9fa;
+    border-color: #e9ecef;
+    transform: translateX(5px);
+  }
+
+  .mobile-nav-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(0.3);
   }
 
   /* Hero Section - мобильная версия */
