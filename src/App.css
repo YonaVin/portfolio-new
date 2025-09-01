@@ -376,7 +376,7 @@
 
 .book-page:nth-child(even) {
   border-radius: 0 25px 25px 0;
-  border: 10px solid #5d5d5d;
+  border: 10px solid #5d5d5d;git
   border-left: none;
 }
 
