@@ -2,7 +2,7 @@
   "name": "portfolio-notebook",
   "version": "1.0.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://yonavin.github.io/portfolio-new",
   "dependencies": {
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
@@ -11,7 +11,7 @@
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
-    "gh-pages": "^6.0.0"
+    "gh-pages": "^6.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,7 +19,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "git subtree push --prefix build origin gh-pages",
+    "deploy-gh-pages": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
