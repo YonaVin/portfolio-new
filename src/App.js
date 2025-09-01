@@ -96,8 +96,7 @@ function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [flipBook, setFlipBook] = useState(null);
+
 
   // Handle navbar visibility on scroll
   useEffect(() => {
@@ -166,9 +165,7 @@ function App() {
 
 
 
-  const handleFlipBookRef = (ref) => {
-    setFlipBook(ref);
-  };
+
 
 
   const projectsData = [
@@ -429,8 +426,6 @@ function App() {
               startPage={0}
               drawShadow={false}
               usePortrait={false}
-              ref={handleFlipBookRef}
-              onFlip={(e) => setCurrentPage(e.data)}
             >
               <Page number="1">
                 <h3 className="page-title">About Me</h3>
@@ -542,26 +537,7 @@ function App() {
               </Page>
             </HTMLFlipBook>
             
-            {/* Mobile Navigation Buttons */}
-            <div className="mobile-book-navigation">
-              <button 
-                className="mobile-nav-btn prev-btn"
-                onClick={() => flipBook && flipBook.pageFlip().flipPrev()}
-                disabled={currentPage === 0}
-              >
-                ← Previous
-              </button>
-              <span className="page-indicator">
-                {currentPage + 1} / 4
-              </span>
-              <button 
-                className="mobile-nav-btn next-btn"
-                onClick={() => flipBook && flipBook.pageFlip().flipNext()}
-                disabled={currentPage === 3}
-              >
-                Next →
-              </button>
-            </div>
+
           </div>
         </motion.section>
 
