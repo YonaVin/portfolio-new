@@ -1640,6 +1640,8 @@
     height: 32px;
     filter: invert(0.2);
     display: block;
+    box-shadow: none;
+    filter: invert(0.2) drop-shadow(none);
   }
 
   /* Mobile Menu Overlay */
