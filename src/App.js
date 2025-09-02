@@ -798,17 +798,21 @@ function App() {
                   </h3>
 
                   <div className="project-screenshot">
-                    <img
-                      src={
-                        projectsData[selectedProject].images[selectedImage]
-                      }
-                      alt={projectsData[selectedProject].title}
-                      onClick={toggleImageSize}
-                      style={{
-                        cursor: 'pointer',
-                        transition: 'all 0.3s ease'
-                      }}
-                    />
+                    {projectsData[selectedProject].images.map((img, index) => (
+                      <img
+                        key={index}
+                        src={img}
+                        alt={`${projectsData[selectedProject].title} ${index + 1}`}
+                        onClick={() => {
+                          setSelectedImage(index);
+                          toggleImageSize();
+                        }}
+                        style={{
+                          cursor: 'pointer',
+                          transition: 'all 0.3s ease'
+                        }}
+                      />
+                    ))}
                   </div>
                   
                   {/* Модальное окно для увеличенного изображения */}
@@ -850,6 +854,8 @@ function App() {
                       />
                     </div>
                   )}
+
+
 
                   <div className="project-gallery">
                     <div className="gallery-container">

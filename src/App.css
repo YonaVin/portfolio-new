@@ -345,6 +345,8 @@
 
 
 
+
+
 .book-page {
   background-color: hsl(0, 0%, 97%);
   background-image: radial-gradient(circle, #d4d4d4 1px, transparent 1px);
@@ -1582,27 +1584,32 @@
   }
 }
 
-/* ========================================= */
-/* МОБИЛЬНАЯ ВЕРСИЯ (БЕЗ ИЗМЕНЕНИЯ DESKTOP) */
-/* ========================================= */
 
-/* Hide mobile menu button on desktop */
+
+/* Desktop styles - скрываем мобильное меню */
 .mobile-menu-btn {
   display: none;
 }
 
-/* Hide mobile book navigation on desktop */
 .mobile-book-navigation {
   display: none;
 }
 
 @media (max-width: 768px) {
-  /* Show mobile menu button on mobile */
+  /* Mobile menu button - показываем на мобильных */
   .mobile-menu-btn {
-    display: block;
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
   }
 
-  /* Show mobile book navigation on mobile */
+  /* Mobile book navigation - показываем на мобильных */
   .mobile-book-navigation {
     display: flex;
   }
@@ -1628,18 +1635,7 @@
   
 
 
-  /* Mobile Menu Button Styles */
-  .mobile-menu-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1001;
-  }
+
 
   .mobile-menu-btn:hover {
     transform: scale(1.1);
@@ -1793,14 +1789,7 @@
     max-width: 200px;
   }
 
-  /* About Section - упрощенная версия книги */
-  .book-container {
-    min-height: auto;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+
 
   /* Mobile Book Navigation */
   .mobile-book-navigation {
@@ -1843,9 +1832,64 @@
     padding: 0 10px;
   }
   
+  /* About Section - мобильная версия */
+  .book-container {
+    min-height: auto;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
   .questionnaire-book {
     transform: scale(0.7);
     margin: -100px auto;
+  }
+  
+  /* Мобильная версия About Me - скрываем книгу, показываем SVG фон */
+  .book-container {
+    background-image: url('../public/moabout.svg');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    min-height: 220px;
+    width: 100%;
+    padding: 40px 20px;
+    margin-top: 100px;
+  }
+  
+  .questionnaire-book {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+  }
+  
+  /* Показываем только контент с первой и второй страницы в мобильной версии */
+  .book-container::before {
+    content: "About Me";
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 40px;
+  }
+  
+  .book-container::after {
+    content: "Hi! I'm Alyona — designer and aspiring frontend developer.\A I combine aesthetics with usability, creating projects that both look and work well. Currently growing my skills in JavaScript, HTML, CSS, and React while building real projects.\A Passionate about user experience, open to international opportunities, and always ready for challenges.\A Outside of work — I love motorcycles and sports.";
+    display: block;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #333;
+    margin-top: 20px;
+    white-space: pre-line;
+    padding: 0 40px;
   }
 
   /* Skills Section - вертикальная колонка */
@@ -1970,7 +2014,9 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 0 20px;
+    padding: 0 20px 0 0;
+    width: 100%;
+    max-width: none;
   }
   
   /* Меняем порядок страниц в мобильной версии */
@@ -1978,13 +2024,14 @@
     order: 2; /* Левая страница (список проектов) теперь снизу */
     background: white;
     border-radius: 15px;
-    padding: 20px;
+    padding: 20px 5px 20px 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border: 2px solid #333;
     background-image: none;
     margin: 0;
     transform: none;
     width: 100%;
+    max-width: none;
   }
   
 
@@ -2034,8 +2081,9 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     gap: 15px;
-    padding: 20px;
-    max-width: 100%;
+    padding: 20px 5px 20px 15px;
+    max-width: none;
+    width: 100%;
     overflow-x: auto;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -2043,9 +2091,9 @@
   }
   
   .notebook-page-left .sticky-notes-grid .project-card {
-    flex: 0 0 calc(50% - 7.5px);
-    min-width: calc(50% - 7.5px);
-    max-width: calc(50% - 7.5px);
+    flex: 1;
+    min-width: auto;
+    max-width: none;
     background: #f8f9fa;
     border-radius: 12px;
     padding: 12px;
@@ -2057,6 +2105,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: static;
     z-index: auto;
+    width: 100%;
   }
   
   .notebook-page-left .sticky-notes-grid .project-card:hover {
@@ -2091,6 +2140,8 @@
     position: static;
     padding: 0;
     background: transparent;
+    width: 100%;
+    max-width: none;
   }
   
   .note-title {
@@ -2115,83 +2166,26 @@
     border: 2px solid #333;
     background-image: none;
     margin: 0;
-    max-width: 100%;
+    max-width: none;
+    width: 100%;
     height: auto;
     overflow: visible;
   }
   
   .notebook-page-right .project-details {
     transform: none;
+    width: 100%;
+    max-width: none;
   }
   
   .project-detail-title {
     font-size: 1.3rem;
     margin-bottom: 15px;
-  }
-  
-  .project-screenshot img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
+    max-width: none;
   }
   
-  .gallery-container {
-    padding: 0;
-    gap: 8px;
-    justify-content: flex-start;
-  }
-  
-  .gallery-image {
-    width: 60px;
-    height: 45px;
-  }
-  
-  .project-info {
-    font-size: 0.9rem;
-    width: 100%;
-    margin: 0 0 20px 0;
-  }
-  
-  .project-detail-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-  
-  .tech-tags {
-    gap: 5px;
-  }
-  
-  .tech-tag {
-    font-size: 0.7rem;
-    padding: 4px 8px;
-  }
-  
-  .project-actions {
-    margin-top: 20px;
-    padding: 0;
-  }
-  
-  .view-project-btn {
-    font-size: 0.9rem;
-    padding: 10px 20px;
-    margin: 0 0 15px 0;
-    display: block;
-    text-align: center;
-  }
-  
-  .project-navigation {
-    justify-content: center;
-    margin: 0;
-    transform: none;
-  }
-  
-  .previous-btn,
-  .next-btn {
-    font-size: 0.8rem;
-    padding: 8px 15px;
-    margin: 0 5px;
-  }
+
 
   /* Contact Section - мобильная версия */
   .contact-social-container {
@@ -2201,7 +2195,8 @@
   }
   
   .contact-info {
-    max-width: 100% !important;
+    max-width: none !important;
+    width: 100%;
     min-height: auto;
   }
   
@@ -2309,6 +2304,130 @@
   .notebook-page {
     padding: 15px;
     padding-top: 80px;
+  }
+  
+  /* Projects Section - мобильная версия */
+  .gallery-container {
+    display: none;
+  }
+  
+  .project-gallery {
+    display: none;
+  }
+  
+  .project-screenshot {
+    display: flex;
+    overflow-x: auto;
+    gap: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    height: 120px;
+    margin: 0;
+    scroll-snap-type: x mandatory;
+    -webkit-scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: thin;
+  }
+  
+  .project-screenshot img {
+    flex: 0 0 auto;
+    width: 300px;
+    min-width: 300px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: none;
+    scroll-snap-align: start;
+    -webkit-scroll-snap-align: start;
+  }
+  
+  .project-screenshot img:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Стили для скроллбара картинок */
+  .project-screenshot::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .project-screenshot::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 3px;
+  }
+  
+  .project-screenshot::-webkit-scrollbar-thumb {
+    background: #87CEEB;
+    border-radius: 3px;
+  }
+  
+  .project-screenshot::-webkit-scrollbar-thumb:hover {
+    background: #5F9EA0;
+  }
+  
+  .project-detail-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left !important;
+    margin-top: 15px;
+    padding: 0 0 0 0;
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  
+  /* Стили для текста под картинкой в мобильной версии */
+  .project-info {
+    text-align: left;
+    margin-top: 20px;
+    padding: 0 0 0 0;
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  
+  .project-title {
+    text-align: left;
+    margin-bottom: 12px;
+    font-weight: 600;
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  
+  .project-description {
+    text-align: left;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  
+  .previous-btn,
+  .next-btn {
+    display: none !important;
+  }
+  
+  .project-actions {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .view-project-btn {
+    margin: -40px auto 0px auto !important;
+    max-width: 200px !important;
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
   }
 }
 
