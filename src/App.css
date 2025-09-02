@@ -1855,15 +1855,54 @@
     gap: 40px;
     margin-top: 60px;
     padding: 0 20px;
+    align-items: center;
   }
   
   .skill-category-container {
     text-align: center;
+    width: 100%;
+    max-width: 400px;
+    position: static;
+    overflow: visible;
   }
   
   .skills-svg {
-    display: none; /* Скрываем большие SVG на мобильных */
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 400px !important;
+    margin: 0 !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: auto !important;
+    transform: none !important;
   }
+  
+  /* Скрываем контейнеры с контентом в мобильной версии */
+  .skills-content {
+    display: none !important;
+  }
+  
+  /* Специфичные правила для каждой секции skills в мобильной версии */
+  .skill-left .skills-svg {
+    left: auto !important;
+    margin-left: 0 !important;
+  }
+  
+  .skill-category-container:not(.skill-left):not(.skill-right) .skills-svg {
+    left: auto !important;
+    margin-left: 0 !important;
+  }
+  
+  .skill-right .skills-svg {
+    left: auto !important;
+    margin-left: 0 !important;
+  }
+  
+
+  
+
   
   .skills-content {
     padding: 20px;
@@ -2088,6 +2127,17 @@
   .contact-svg {
     display: none; /* Скрываем SVG на мобильных */
   }
+  
+  /* Добавляем фон mocontact.svg для секции contact в мобильной версии */
+  .contact-left {
+    background-image: url('../public/mocontact.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+  }
+  
+
   
   .contact-content {
     padding: 20px;

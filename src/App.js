@@ -6,6 +6,36 @@ import './App.css';
 // Utility function for image paths
 const getImageUrl = (path) => `${process.env.PUBLIC_URL}${path}`;
 
+// Function to get SVG for skills based on screen size
+const getSkillsSvg = (section) => {
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    // Mobile version - return moskill SVGs
+    switch (section) {
+      case 'design':
+        return getImageUrl("/moskill.svg");
+      case 'frontend':
+        return getImageUrl("/moskill2.svg");
+      case 'tools':
+        return getImageUrl("/moskill3.svg");
+      default:
+        return getImageUrl("/moskill.svg");
+    }
+  }
+  
+  // Desktop version - return original SVGs
+  switch (section) {
+    case 'design':
+      return getImageUrl("/skills.svg");
+    case 'frontend':
+      return getImageUrl("/skills2.svg");
+    case 'tools':
+      return getImageUrl("/skills3.svg");
+    default:
+      return getImageUrl("/skills.svg");
+  }
+};
+
 
 
 // Page components for the book
@@ -125,6 +155,24 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
+
+  // Update SVG files when screen size changes
+  useEffect(() => {
+    const handleResize = () => {
+      // Force re-render of skills section when screen size changes
+      const skillsSection = document.getElementById('skills');
+      if (skillsSection) {
+        const skillSvgs = skillsSection.querySelectorAll('.skills-svg');
+        skillSvgs.forEach((svg, index) => {
+          const section = index === 0 ? 'design' : index === 1 ? 'frontend' : 'tools';
+          svg.src = getSkillsSvg(section);
+        });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const scrollToTop = () => {
     // Add animation class
@@ -553,7 +601,7 @@ function App() {
           <div className="skills-container">
             {/* Design Skills */}
             <div className="skill-category-container skill-left">
-              <img src={getImageUrl("/skills.svg")} alt="" className="skills-svg" />
+              <img src={getSkillsSvg("design")} alt="" className="skills-svg" />
               <div className="skills-content">
                 <h3 className="skill-category-title">
                   <img src={getImageUrl("/design.svg")} alt="Design" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
@@ -584,7 +632,7 @@ function App() {
 
             {/* Frontend Skills */}
             <div className="skill-category-container">
-              <img src={getImageUrl("/skills2.svg")} alt="" className="skills-svg" />
+              <img src={getSkillsSvg("frontend")} alt="" className="skills-svg" />
               <div className="skills-content">
                 <h3 className="skill-category-title">
                   <img src={getImageUrl("/front.svg")} alt="Frontend" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
@@ -639,7 +687,7 @@ function App() {
 
             {/* Tools Skills */}
             <div className="skill-category-container skill-right">
-              <img src={getImageUrl("/skills3.svg")} alt="" className="skills-svg" />
+              <img src={getSkillsSvg("tools")} alt="" className="skills-svg" />
               <div className="skills-content">
                 <h3 className="skill-category-title">
                   <img src={getImageUrl("/tool.svg")} alt="Tools" style={{ width: '30px', height: '30px', marginRight: '10px', verticalAlign: 'middle' }} />
