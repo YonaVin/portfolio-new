@@ -747,6 +747,8 @@ function App() {
           <div className="notebook-container">
             {/* Левая часть - блокнот */}
             <div className="notebook-page-left">
+
+
               {/* Вкладки */}
               <div className="notebook-tabs">
                 <div
